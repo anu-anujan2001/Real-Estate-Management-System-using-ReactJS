@@ -275,12 +275,21 @@ const resetPassword = asyncHandler(async (req, res) => {
 
 });
 
+const checkAuth = asyncHandler(async (req, res) => {
+    try {
+        res.status(200).json(req.user);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
 
 module.exports = {
     registerUser,
     loginUser,
     getUserProfile,
     verifyEmail,
+    checkAuth,
     forgotPassword,
     resetPassword,
 };
