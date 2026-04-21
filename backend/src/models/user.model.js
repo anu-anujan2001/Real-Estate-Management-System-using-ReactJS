@@ -17,25 +17,17 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ['buyer', 'seller', 'admin'],
-        default: 'buyer',
+        enum: ['customer', 'admin'],
+        default: 'customer',
     },
     phone: {
         type: String,
-    },
-    isBlocked: {
-        type: Boolean,
-        default: false,
     },
     profilePic: {
         type: String,
     },
     address: {
         type: String,
-    },
-    isApproved: {
-        type: Boolean,
-        default: true,
     },
     isVerified: {
         type: Boolean,

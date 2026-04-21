@@ -50,7 +50,6 @@ const registerUser = asyncHandler(async (req, res) => {
             email,
             password: hashedPassword,
             role,
-            isApproved: role === 'seller' ? false : true, // Auto-approve sellers
             verificationToken,
         });
      
@@ -80,7 +79,6 @@ const registerUser = asyncHandler(async (req, res) => {
                 name: user.name,
                 email: user.email,
                 role: user.role,
-                isApproved: user.isApproved,
             },
         });
 
@@ -117,21 +115,15 @@ const loginUser = asyncHandler(async (req, res) => {
         }
 
         if(!user.isVerified) {
-            res.status(400);
-            throw new Error('Email not verified. Please check your email for the verification code.');
+            return res.status(400).json({ message: 'Please verify your email before logging in' });
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
 
         if (!isMatch) {
-            res.status(400);
-            throw new Error('Invalid credentials');
+            return res.status(400).json({ message: 'Invalid credentials' });
         }
 
-        if(user.isBlocked) {
-            res.status(403);
-            throw new Error('Your account has been blocked. Please contact support.');
-        }
 
         // Generate JWT token
         const token = generateToken(res, user._id);
