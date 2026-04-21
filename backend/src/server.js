@@ -6,6 +6,7 @@ const connectDB = require('./config/db');
 const errorMiddleware = require('./middleware/error.middleware');
 const authRoutes = require('./routes/auth.route');
 const userRoutes = require('./routes/user.route');
+const productRoutes = require('./routes/product.route');
 
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
+app.use('/api/product', productRoutes);
 
 // Error handling middleware
 app.use(errorMiddleware);
