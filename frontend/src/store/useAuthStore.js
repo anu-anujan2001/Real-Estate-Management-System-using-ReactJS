@@ -1,42 +1,116 @@
-import { create } from 'zustand'
-import axiosInstance from '../lib/axios'
-import toast from 'react-hot-toast'
-
+import { create } from "zustand";
+import axiosInstance from "../lib/axios";
+import toast from "react-hot-toast";
 
 const useAuthStore = create((set) => ({
-    authUser: null,
-    isLoggingIn: false,
-    // isSigningUp: false,
-    // isUpdatingProfile: false,
-    isCheckingAuth: true,
+  authUser: null,
+  verificationExpiresAt: null,
 
-    checkAuth: async () => {
-        try {
-            const res = await axiosInstance.get("/auth/check-auth");
-            set({ authUser: res.data });
-        } catch (err) {
-            console.log(err);
-            set({ authUser: null });
-        } finally {
-            set({ isCheckingAuth: false });
-        }
-    },
+  isLoggingIn: false,
+  isSigningUp: false,
+  isVerifyingEmail: false,
+  isResendingCode: false,
+  isCheckingAuth: true,
 
-    //login
-    login: async (userData) => {
-        set({ isLoggingIn: true });
-        try {
-            const res = await axiosInstance.post("/auth/login", userData);
-            set({ authUser: res.data });
-            toast.success("Login successful");
-        } catch (err) {
-            console.log(err);
-            toast.error("Login failed");
-        } finally {
-            set({ isLoggingIn: false });
-        }
-    },
+  checkAuth: async () => {
+    try {
+      const res = await axiosInstance.get("/auth/check-auth");
+      set({ authUser: res.data });
+    } catch (err) {
+      set({ authUser: null });
+    } finally {
+      set({ isCheckingAuth: false });
+    }
+  },
+
+  login: async (userData) => {
+    set({ isLoggingIn: true });
+    try {
+      const res = await axiosInstance.post("/auth/login", userData);
+      set({ authUser: res.data.user });
+      toast.success("Login successful");
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Login failed");
+    } finally {
+      set({ isLoggingIn: false });
+    }
+  },
+
+  signup: async (userData) => {
+    set({ isSigningUp: true });
+    try {
+      const res = await axiosInstance.post("/auth/register", userData);
+
+      set({
+        authUser: res.data.user,
+        verificationExpiresAt: res.data.expiresAt,
+      });
+
+      toast.success(
+        "Email verification sent. Please verify within 60 seconds.",
+      );
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Signup failed");
+    } finally {
+      set({ isSigningUp: false });
+    }
+  },
+
+  verifyEmail: async (verificationData) => {
+    set({ isVerifyingEmail: true });
+    try {
+      await axiosInstance.post("/auth/verify-email", verificationData);
+
+      set((state) => ({
+        authUser: state.authUser
+          ? { ...state.authUser, isVerified: true }
+          : null,
+        verificationExpiresAt: null,
+      }));
+
+      toast.success("Email verified successfully");
+    } catch (err) {
+      if (err.response?.data?.message?.includes("expired")) {
+        set({ authUser: null, verificationExpiresAt: null });
+      }
+      toast.error(err.response?.data?.message || "Email verification failed");
+    } finally {
+      set({ isVerifyingEmail: false });
+    }
+  },
+
+  resendVerificationCode: async (email) => {
+    set({ isResendingCode: true });
+    try {
+      const res = await axiosInstance.post("/auth/resend-verification-code", {
+        email,
+      });
+
+      set({ verificationExpiresAt: res.data.expiresAt });
+      toast.success(res.data.message || "Verification code resent");
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Failed to resend code");
+    } finally {
+      set({ isResendingCode: false });
+    }
+  },
+
+  clearExpiredUser: () => {
+    set({
+      authUser: null,
+      verificationExpiresAt: null,
+    });
+  },
+
+  logout: async () => {
+    try {
+      await axiosInstance.post("/auth/logout");
+      set({ authUser: null, verificationExpiresAt: null });
+      toast.success("Logged out successfully");
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Logout failed");
+    }
+  },
 }));
 
 export default useAuthStore;
-    

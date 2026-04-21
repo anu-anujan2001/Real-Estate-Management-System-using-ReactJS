@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useAuthStore from "../store/useAuthStore";
 import {Loader2} from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function LoginPage() {
   const { login, isLoggingIn } = useAuthStore();
@@ -95,9 +96,9 @@ export default function LoginPage() {
           {/* Register Link */}
           <p className="text-center text-sm mt-4">
             Don’t have an account?{" "}
-            <a href="#" className="link link-primary">
+            <Link to="/signup" className="link link-primary">
               Register
-            </a>
+            </Link>
           </p>
         </div>
       </div>
