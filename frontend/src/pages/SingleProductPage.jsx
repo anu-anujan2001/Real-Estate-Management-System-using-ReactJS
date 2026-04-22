@@ -11,6 +11,7 @@ import {
 import toast from "react-hot-toast";
 import useAuthStore from "../store/useAuthStore";
 import useProductStore from "../store/useProductStore";
+import useWishlistStore from "../store/useWishlistStore";
 import ShopProductCard from "../components/shop/ShopProductCard";
 
 export default function SingleProductPage() {
@@ -26,6 +27,14 @@ export default function SingleProductPage() {
     fetchProducts,
   } = useProductStore();
 
+  const {
+    wishlist,
+    fetchWishlist,
+    toggleWishlist,
+    clearWishlist,
+    isUpdatingWishlist,
+  } = useWishlistStore();
+
   const [selectedImage, setSelectedImage] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [relatedProducts, setRelatedProducts] = useState([]);
@@ -40,6 +49,14 @@ export default function SingleProductPage() {
       clearSelectedProduct();
     };
   }, [id, fetchProductById, clearSelectedProduct]);
+
+  useEffect(() => {
+    if (authUser) {
+      fetchWishlist();
+    } else {
+      clearWishlist();
+    }
+  }, [authUser, fetchWishlist, clearWishlist]);
 
   useEffect(() => {
     if (selectedProduct?.images?.length > 0) {
@@ -91,14 +108,26 @@ export default function SingleProductPage() {
     return true;
   };
 
+  const getWishlistProductId = (item) => {
+    if (!item?.product) return null;
+    return typeof item.product === "string" ? item.product : item.product._id;
+  };
+
+  const isWishlisted =
+    authUser && selectedProduct
+      ? wishlist.some(
+          (item) => getWishlistProductId(item) === selectedProduct._id,
+        )
+      : false;
+
   const handleAddToCart = () => {
     if (!requireLogin()) return;
     toast.success(`Added ${quantity} item(s) to cart`);
   };
 
-  const handleWishlist = () => {
+  const handleWishlist = async () => {
     if (!requireLogin()) return;
-    toast.success("Added to wishlist");
+    await toggleWishlist(selectedProduct._id);
   };
 
   const handleIncrease = () => {
@@ -158,7 +187,6 @@ export default function SingleProductPage() {
         </button>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* LEFT - IMAGES */}
           <div className="space-y-4">
             <div className="bg-base-100 rounded-2xl border border-base-300 overflow-hidden">
               <img
@@ -196,7 +224,6 @@ export default function SingleProductPage() {
             )}
           </div>
 
-          {/* RIGHT - DETAILS */}
           <div className="bg-base-100 rounded-2xl border border-base-300 p-6 md:p-8">
             <p className="text-sm uppercase tracking-wide text-base-content/60">
               {selectedProduct.category}
@@ -295,10 +322,16 @@ export default function SingleProductPage() {
 
               <button
                 onClick={handleWishlist}
-                className="btn btn-outline rounded-xl"
+                disabled={isUpdatingWishlist}
+                className={`btn rounded-xl ${
+                  isWishlisted ? "btn-primary" : "btn-outline"
+                }`}
               >
-                <Heart size={18} />
-                Wishlist
+                <Heart
+                  size={18}
+                  className={isWishlisted ? "fill-current" : ""}
+                />
+                {isWishlisted ? "Wishlisted" : "Wishlist"}
               </button>
             </div>
 
@@ -313,7 +346,6 @@ export default function SingleProductPage() {
           </div>
         </div>
 
-        {/* RELATED PRODUCTS */}
         <div className="mt-14">
           <div className="flex items-center justify-between mb-6">
             <div>
@@ -341,20 +373,29 @@ export default function SingleProductPage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {relatedProducts.map((product) => (
-                <ShopProductCard
-                  key={product._id}
-                  product={product}
-                  onAddToCart={() => {
-                    if (!requireLogin()) return;
-                    toast.success("Added to cart");
-                  }}
-                  onToggleWishlist={() => {
-                    if (!requireLogin()) return;
-                    toast.success("Added to wishlist");
-                  }}
-                />
-              ))}
+              {relatedProducts.map((product) => {
+                const relatedIsWishlisted = authUser
+                  ? wishlist.some(
+                      (item) => getWishlistProductId(item) === product._id,
+                    )
+                  : false;
+
+                return (
+                  <ShopProductCard
+                    key={product._id}
+                    product={product}
+                    isWishlisted={relatedIsWishlisted}
+                    onAddToCart={() => {
+                      if (!requireLogin()) return;
+                      toast.success("Added to cart");
+                    }}
+                    onToggleWishlist={async (productId) => {
+                      if (!requireLogin()) return;
+                      await toggleWishlist(productId);
+                    }}
+                  />
+                );
+              })}
             </div>
           )}
         </div>

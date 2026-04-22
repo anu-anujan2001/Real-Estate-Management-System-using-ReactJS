@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ShoppingCart, Heart, User, Search, Menu } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import useAuthStore from "../store/useAuthStore";
+import useWishlistStore from "../store/useWishlistStore";
 
 export default function Navbar() {
   const { authUser, logout } = useAuthStore();
+  const { wishlist, fetchWishlist, clearWishlist } = useWishlistStore();
+
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    if (authUser) {
+      fetchWishlist();
+    } else {
+      clearWishlist();
+    }
+  }, [authUser, fetchWishlist, clearWishlist]);
 
   const handleProtectedNavigation = (path) => {
     if (!authUser) {
@@ -39,9 +50,15 @@ export default function Navbar() {
     setSearchTerm("");
   };
 
+  const handleLogout = async () => {
+    clearWishlist();
+    await logout();
+  };
+
+  const wishlistCount = authUser ? wishlist.length : 0;
+
   return (
     <div className="navbar bg-base-100 shadow-md px-3 sm:px-4 lg:px-8 sticky top-0 z-50">
-      {/* Left */}
       <div className="navbar-start">
         <div className="dropdown lg:hidden">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -78,7 +95,6 @@ export default function Navbar() {
         </Link>
       </div>
 
-      {/* Center */}
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 font-medium gap-1">
           <li>
@@ -99,7 +115,6 @@ export default function Navbar() {
         </ul>
       </div>
 
-      {/* Right */}
       <div className="navbar-end gap-2 items-center">
         <form
           onSubmit={handleSearchSubmit}
@@ -127,9 +142,9 @@ export default function Navbar() {
           className="btn btn-ghost btn-circle relative flex items-center justify-center"
         >
           <Heart className="w-5 h-5" />
-          {authUser?.isVerified && (
+          {authUser?.isVerified && wishlistCount > 0 && (
             <span className="badge badge-sm badge-primary absolute -top-1 -right-1">
-              2
+              {wishlistCount}
             </span>
           )}
         </button>
@@ -197,7 +212,7 @@ export default function Navbar() {
               </li>
 
               <li>
-                <button onClick={logout}>Logout</button>
+                <button onClick={handleLogout}>Logout</button>
               </li>
             </ul>
           </div>

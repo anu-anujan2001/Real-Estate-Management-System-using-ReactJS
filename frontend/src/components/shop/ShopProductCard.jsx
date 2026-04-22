@@ -24,7 +24,7 @@ export default function ShopProductCard({
 
   const handleWishlistClick = () => {
     if (!requireLogin()) return;
-    onToggleWishlist?.(product);
+    onToggleWishlist?.(product._id);
   };
 
   const handleAddToCartClick = () => {

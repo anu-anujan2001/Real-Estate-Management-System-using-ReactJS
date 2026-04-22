@@ -11,6 +11,8 @@ import EmailVerificationPage from "./pages/EmailVerificationPage";
 import ShopPage from "./pages/ShopPage";
 import CategoriesPage from "./pages/CategoriesPage";
 import SingleProductPage from "./pages/SingleProductPage";
+import WishlistPage from "./pages/WishlistPage";
+import ContactPage from "./pages/ContactPage";
 
 import useAuthStore from "./store/useAuthStore";
 
@@ -138,6 +140,26 @@ function App() {
           }
         />
 
+          <Route
+          path="/wishlist"
+          element={
+            authUser?.role === "admin" ? (
+              <Navigate to="/admin" replace />
+            ) : (
+              <WishlistPage />
+            )
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            authUser?.role === "admin" ? (
+              <Navigate to="/admin" replace />
+            ) : (
+              <ContactPage />
+            )
+          }
+        />
         {/* ADMIN */}
         <Route
           path="/admin"

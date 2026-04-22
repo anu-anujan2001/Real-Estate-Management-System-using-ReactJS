@@ -1,13 +1,32 @@
+import { useEffect } from "react";
 import ShopProductCard from "./ShopProductCard";
+import useWishlistStore from "../../store/useWishlistStore";
+import useAuthStore from "../../store/useAuthStore";
 
-export default function ShopProductGrid({
-  products,
-  isLoading,
-  wishlistItems = [],
-  onToggleWishlist,
-  onAddToCart,
-}) {
-  if (isLoading) {
+const getWishlistProductId = (item) => {
+  if (!item?.product) return null;
+  return typeof item.product === "string" ? item.product : item.product._id;
+};
+
+export default function ShopProductGrid({ products, isLoading, onAddToCart }) {
+  const { authUser } = useAuthStore();
+  const {
+    wishlist,
+    fetchWishlist,
+    toggleWishlist,
+    isLoadingWishlist,
+    clearWishlist,
+  } = useWishlistStore();
+
+  useEffect(() => {
+    if (authUser) {
+      fetchWishlist();
+    } else {
+      clearWishlist();
+    }
+  }, [authUser, fetchWishlist, clearWishlist]);
+
+  if (isLoading || (authUser && isLoadingWishlist)) {
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
         {Array.from({ length: 6 }).map((_, index) => (
@@ -40,16 +59,16 @@ export default function ShopProductGrid({
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
       {products.map((product) => {
-        const isWishlisted = wishlistItems.some(
-          (item) => item._id === product._id,
-        );
+        const isWishlisted = authUser
+          ? wishlist.some((item) => getWishlistProductId(item) === product._id)
+          : false;
 
         return (
           <ShopProductCard
             key={product._id}
             product={product}
             isWishlisted={isWishlisted}
-            onToggleWishlist={onToggleWishlist}
+            onToggleWishlist={toggleWishlist}
             onAddToCart={onAddToCart}
           />
         );
