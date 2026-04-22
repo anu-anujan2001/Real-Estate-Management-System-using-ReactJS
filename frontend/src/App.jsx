@@ -3,12 +3,19 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { Loader } from "lucide-react";
 import { Toaster } from "react-hot-toast";
 
-import Nabar from "./components/Navbar";
+import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import EmailVerificationPage from "./pages/EmailVerificationPage";
 import useAuthStore from "./store/useAuthStore";
+
+import AdminLayout from "./components/admin/layout/AdminLayout";
+import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
+import AdminProductsPage from "./pages/admin/AdminProductsPage";
+import AdminCreateProductPage from "./pages/admin/AdminCreateProductPage";
+import AdminRoute from "./routes/AdminRoute";
+import AdminEditProductPage from "./pages/admin/AdminEditProductPage";
 
 function App() {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
@@ -27,16 +34,22 @@ function App() {
 
   return (
     <div>
-      <Nabar />
+      {(!authUser || authUser.role !== "admin") && <Navbar />}
 
       <Routes>
         <Route
           path="/"
           element={
-            authUser && authUser.isVerified ? (
-              <HomePage />
-            ) : authUser && !authUser.isVerified ? (
-              <Navigate to="/verify-email" replace />
+            authUser ? (
+              authUser.isVerified ? (
+                authUser.role === "admin" ? (
+                  <Navigate to="/admin" replace />
+                ) : (
+                  <HomePage />
+                )
+              ) : (
+                <Navigate to="/verify-email" replace />
+              )
             ) : (
               <Navigate to="/login" replace />
             )
@@ -49,7 +62,11 @@ function App() {
             !authUser ? (
               <LoginPage />
             ) : authUser.isVerified ? (
-              <Navigate to="/" replace />
+              authUser.role === "admin" ? (
+                <Navigate to="/admin" replace />
+              ) : (
+                <Navigate to="/" replace />
+              )
             ) : (
               <Navigate to="/verify-email" replace />
             )
@@ -61,8 +78,12 @@ function App() {
           element={
             !authUser ? (
               <SignupPage />
-            ) :  authUser.isVerified ? (
-              <Navigate to="/" replace />
+            ) : authUser.isVerified ? (
+              authUser.role === "admin" ? (
+                <Navigate to="/admin" replace />
+              ) : (
+                <Navigate to="/" replace />
+              )
             ) : (
               <Navigate to="/verify-email" replace />
             )
@@ -74,13 +95,31 @@ function App() {
           element={
             authUser && !authUser.isVerified ? (
               <EmailVerificationPage />
-            ) : (authUser && authUser.isVerified ? (
-              <Navigate to="/" replace />
+            ) : authUser ? (
+              authUser.role === "admin" ? (
+                <Navigate to="/admin" replace />
+              ) : (
+                <Navigate to="/" replace />
+              )
             ) : (
               <Navigate to="/login" replace />
-            ))
+            )
           }
         />
+
+        <Route
+          path="/admin"
+          element={
+            <AdminRoute>
+              <AdminLayout />
+            </AdminRoute>
+          }
+        >
+          <Route index element={<AdminDashboardPage />} />
+          <Route path="products" element={<AdminProductsPage />} />
+          <Route path="products/create" element={<AdminCreateProductPage />} />
+          <Route path="products/edit/:id" element={<AdminEditProductPage />} />
+        </Route>
       </Routes>
 
       <Toaster />

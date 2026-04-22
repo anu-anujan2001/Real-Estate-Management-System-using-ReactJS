@@ -8,8 +8,6 @@ const {
   getSingleProduct,
   updateProduct,
   deleteProduct,
-  getFeaturedProducts,
-  getProductsByCategory,
   toggleFeaturedProduct,
   toggleActiveStatus,
 } = require("../controllers/product.controller");
@@ -32,11 +30,6 @@ router.put("/:id", protectedRoute, upload.array('images', 10), updateProduct);
 // delete product by id
 router.delete("/:id", protectedRoute, deleteProduct);
 
-// get featured products
-router.get("/featured", getFeaturedProducts);
-
-// get products by category
-router.get("/category/:category", getProductsByCategory);
 
 // toggle featured status
 router.patch("/:id/featured", protectedRoute, toggleFeaturedProduct);

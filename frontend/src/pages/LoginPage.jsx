@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useAuthStore from "../store/useAuthStore";
-import {Loader2} from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function LoginPage() {
@@ -16,18 +16,17 @@ export default function LoginPage() {
     login(formData);
   };
 
-  
   return (
-    <div className="min-h-screen flex items-center justify-center bg-base-200">
-      <div className="card w-full max-w-md shadow-2xl bg-base-100">
-        <div className="card-body">
-          <h2 className="text-2xl font-bold text-center">Login</h2>
+    <div className="min-h-[calc(100vh-80px)] flex items-start justify-center bg-base-200 py-6 px-3">
+      <div className="card w-full max-w-md shadow-xl bg-base-100">
+        <div className="card-body p-6 sm:p-7">
+          <h2 className="text-xl sm:text-2xl font-bold text-center">Login</h2>
 
-          <form className="space-y-4" onSubmit={handleSubmit}>
+          <form className="space-y-3 mt-2" onSubmit={handleSubmit}>
             {/* Email */}
             <div>
-              <label className="label">
-                <span className="label-text">Email</span>
+              <label className="label py-1">
+                <span className="label-text text-sm">Email</span>
               </label>
               <input
                 type="email"
@@ -36,14 +35,14 @@ export default function LoginPage() {
                   setFormData({ ...formData, email: e.target.value })
                 }
                 placeholder="Enter your email"
-                className="input input-bordered w-full"
+                className="input input-bordered w-full h-10 text-sm"
               />
             </div>
 
             {/* Password */}
             <div>
-              <label className="label">
-                <span className="label-text">Password</span>
+              <label className="label py-1">
+                <span className="label-text text-sm">Password</span>
               </label>
               <input
                 type="password"
@@ -52,31 +51,35 @@ export default function LoginPage() {
                   setFormData({ ...formData, password: e.target.value })
                 }
                 placeholder="Enter your password"
-                className="input input-bordered w-full"
+                className="input input-bordered w-full h-10 text-sm"
               />
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
+
+              <div className="flex justify-end mt-1">
+                <Link to="/forgot-password" className="text-xs link link-hover">
                   Forgot password?
-                </a>
-              </label>
+                </Link>
+              </div>
             </div>
 
             {/* Remember Me */}
-            <div className="flex items-center justify-between">
-              <label className="cursor-pointer label">
+            <div className="flex items-center justify-between text-sm">
+              <label className="flex items-center gap-2 cursor-pointer">
                 <input
                   type="checkbox"
-                  className="checkbox checkbox-primary mr-2"
+                  className="checkbox checkbox-primary checkbox-sm"
                 />
-                <span className="label-text">Remember me</span>
+                <span>Remember me</span>
               </label>
             </div>
 
             {/* Login Button */}
-            <button className="btn btn-primary w-full" disabled={isLoggingIn}>
+            <button
+              className="btn btn-primary w-full mt-2 h-10 text-sm"
+              disabled={isLoggingIn}
+            >
               {isLoggingIn ? (
                 <>
-                  <Loader2 className="h-5 w-5 animate-spin" />
+                  <Loader2 className="h-4 w-4 animate-spin" />
                   Loading...
                 </>
               ) : (
@@ -86,15 +89,15 @@ export default function LoginPage() {
           </form>
 
           {/* Divider */}
-          <div className="divider">OR</div>
+          <div className="divider my-3 text-xs">OR</div>
 
-          {/* Social Login */}
-          <button className="btn btn-outline w-full disabled:*:">
+          {/* Google */}
+          <button className="btn btn-outline w-full h-10 text-sm">
             Continue with Google
           </button>
 
-          {/* Register Link */}
-          <p className="text-center text-sm mt-4">
+          {/* Register */}
+          <p className="text-center text-xs sm:text-sm mt-3">
             Don’t have an account?{" "}
             <Link to="/signup" className="link link-primary">
               Register
