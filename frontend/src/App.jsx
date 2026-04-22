@@ -8,28 +8,26 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import EmailVerificationPage from "./pages/EmailVerificationPage";
+import ShopPage from "./pages/ShopPage";
+import CategoriesPage from "./pages/CategoriesPage";
+import SingleProductPage from "./pages/SingleProductPage";
+
 import useAuthStore from "./store/useAuthStore";
-import useProductStore from "./store/useProductStore";
 
 import AdminLayout from "./components/admin/layout/AdminLayout";
 import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
 import AdminProductsPage from "./pages/admin/AdminProductsPage";
 import AdminCreateProductPage from "./pages/admin/AdminCreateProductPage";
-import AdminRoute from "./routes/AdminRoute";
 import AdminEditProductPage from "./pages/admin/AdminEditProductPage";
+import AdminUsersPage from "./pages/admin/AdminUsersPage";
+import AdminRoute from "./routes/AdminRoute";
 
 function App() {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
-  const { fetchProducts, products } = useProductStore();
 
   useEffect(() => {
     checkAuth();
-    fetchProducts();
-  }, [checkAuth, fetchProducts]);
-
-  console.log("Authenticated User:", authUser);
-  console.log("Checking Auth:", isCheckingAuth);
-  console.log("Products:", products);
+  }, [checkAuth]);
 
   if (isCheckingAuth) {
     return (
@@ -44,25 +42,41 @@ function App() {
       {(!authUser || authUser.role !== "admin") && <Navbar />}
 
       <Routes>
+        {/* PUBLIC PAGES */}
         <Route
           path="/"
           element={
-            authUser ? (
-              authUser.isVerified ? (
-                authUser.role === "admin" ? (
-                  <Navigate to="/admin" replace />
-                ) : (
-                  <HomePage />
-                )
-              ) : (
-                <Navigate to="/verify-email" replace />
-              )
+            authUser?.role === "admin" ? (
+              <Navigate to="/admin" replace />
             ) : (
-              <Navigate to="/login" replace />
+              <HomePage />
             )
           }
         />
 
+        <Route
+          path="/shop"
+          element={
+            authUser?.role === "admin" ? (
+              <Navigate to="/admin" replace />
+            ) : (
+              <ShopPage />
+            )
+          }
+        />
+
+        <Route
+          path="/categories"
+          element={
+            authUser?.role === "admin" ? (
+              <Navigate to="/admin" replace />
+            ) : (
+              <CategoriesPage />
+            )
+          }
+        />
+
+        {/* AUTH PAGES */}
         <Route
           path="/login"
           element={
@@ -113,7 +127,18 @@ function App() {
             )
           }
         />
+        <Route
+          path="/product/:id"
+          element={
+            authUser?.role === "admin" ? (
+              <Navigate to="/admin" replace />
+            ) : (
+              <SingleProductPage />
+            )
+          }
+        />
 
+        {/* ADMIN */}
         <Route
           path="/admin"
           element={
@@ -126,6 +151,7 @@ function App() {
           <Route path="products" element={<AdminProductsPage />} />
           <Route path="products/create" element={<AdminCreateProductPage />} />
           <Route path="products/edit/:id" element={<AdminEditProductPage />} />
+          <Route path="users" element={<AdminUsersPage />} />
         </Route>
       </Routes>
 

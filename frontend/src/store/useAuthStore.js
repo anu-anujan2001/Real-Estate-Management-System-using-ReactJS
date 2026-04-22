@@ -5,12 +5,14 @@ import toast from "react-hot-toast";
 const useAuthStore = create((set) => ({
   authUser: null,
   verificationExpiresAt: null,
+  users: [],
 
   isLoggingIn: false,
   isSigningUp: false,
   isVerifyingEmail: false,
   isResendingCode: false,
   isCheckingAuth: true,
+  isGettingUsers: false,
 
   checkAuth: async () => {
     try {
@@ -102,10 +104,22 @@ const useAuthStore = create((set) => ({
     });
   },
 
+  getAllUsers: async () => {
+    set({ isGettingUsers: true });
+    try {
+      const res = await axiosInstance.get("/user");
+      set({ users: res.data.users || [] });
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Failed to fetch users");
+    } finally {
+      set({ isGettingUsers: false });
+    }
+  },
+
   logout: async () => {
     try {
       await axiosInstance.post("/auth/logout");
-      set({ authUser: null, verificationExpiresAt: null });
+      set({ authUser: null, verificationExpiresAt: null, users: [] });
       toast.success("Logged out successfully");
     } catch (err) {
       toast.error(err.response?.data?.message || "Logout failed");

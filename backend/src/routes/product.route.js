@@ -1,52 +1,58 @@
 const express = require("express");
 const router = express.Router();
-const { protectedRoute } = require("../middleware/auth.middleware");
+
+const { protectedRoute, authorize } = require("../middleware/auth.middleware");
 const upload = require("../middleware/upload.middleware");
+
 const {
   createProduct,
   getAllProducts,
+  getCategorySummary,
   getSingleProduct,
   updateProduct,
   deleteProduct,
   toggleFeaturedProduct,
   toggleActiveStatus,
+  getBrandSummary,
 } = require("../controllers/product.controller");
 
-
-
-
-// create a new product
-router.post("/", protectedRoute, upload.array('images', 10), createProduct);
-
-// get all products with filters, pagination, and sorting
+// 🔓 PUBLIC ROUTES
 router.get("/", getAllProducts);
-
-// get single product by id
+router.get("/categories", getCategorySummary);
+router.get("/brands/summary", getBrandSummary);
 router.get("/:id", getSingleProduct);
 
-// update product by id
-router.put("/:id", protectedRoute, upload.array('images', 10), updateProduct);
+// 🔒 ADMIN ONLY ROUTES
+router.post(
+  "/",
+  protectedRoute,
+  authorize("admin"),
+  upload.array("images", 10),
+  createProduct,
+);
 
-// delete product by id
-router.delete("/:id", protectedRoute, deleteProduct);
+router.put(
+  "/:id",
+  protectedRoute,
+  authorize("admin"),
+  upload.array("images", 10),
+  updateProduct,
+);
 
+router.delete("/:id", protectedRoute, authorize("admin"), deleteProduct);
 
-// toggle featured status
-router.patch("/:id/featured", protectedRoute, toggleFeaturedProduct);
+router.patch(
+  "/:id/featured",
+  protectedRoute,
+  authorize("admin"),
+  toggleFeaturedProduct,
+);
 
-// toggle active status
-router.patch("/:id/active", protectedRoute, toggleActiveStatus);
-
-
-
-
-
-
-
-
-
-
-
-
+router.patch(
+  "/:id/active",
+  protectedRoute,
+  authorize("admin"),
+  toggleActiveStatus,
+);
 
 module.exports = router;

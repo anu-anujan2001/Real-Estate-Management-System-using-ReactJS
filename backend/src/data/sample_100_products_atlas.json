@@ -1,0 +1,2395 @@
+[
+  {
+    "name": "Classic Olive Running Shoes",
+    "description": "Classic running shoes from Nike, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 7600,
+    "category": "Footwear",
+    "brand": "Nike",
+    "images": [
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 5,
+    "rating": 3.9,
+    "numReviews": 159,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-001",
+    "variants": [
+      {
+        "size": "44",
+        "color": "Black",
+        "stock": 3,
+        "price": 7900
+      },
+      {
+        "size": "43",
+        "color": "White",
+        "stock": 2,
+        "price": 7600
+      }
+    ]
+  },
+  {
+    "name": "Everyday Grey Denim Jacket",
+    "description": "Everyday denim jacket from Tommy Hilfiger, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 7500,
+    "category": "Clothing",
+    "brand": "Tommy Hilfiger",
+    "images": [
+      "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 12,
+    "rating": 4.0,
+    "numReviews": 28,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-002",
+    "variants": [
+      {
+        "size": "M",
+        "color": "Blue",
+        "stock": 8,
+        "price": 7700
+      },
+      {
+        "size": "L",
+        "color": "Red",
+        "stock": 4,
+        "price": 7600
+      }
+    ]
+  },
+  {
+    "name": "Lightweight White Bluetooth Speaker",
+    "description": "Lightweight bluetooth speaker from Sony, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 28400,
+    "category": "Electronics",
+    "brand": "Sony",
+    "images": [
+      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 17,
+    "rating": 3.7,
+    "numReviews": 80,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-003",
+    "variants": []
+  },
+  {
+    "name": "Modern Black Crossbody Bag",
+    "description": "Modern crossbody bag from Ray-Ban, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 9900,
+    "category": "Accessories",
+    "brand": "Ray-Ban",
+    "images": [
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 12,
+    "rating": 4.6,
+    "numReviews": 25,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-004",
+    "variants": []
+  },
+  {
+    "name": "Signature Blue Wall Clock",
+    "description": "Signature wall clock from Prestige, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 5900,
+    "category": "Home & Living",
+    "brand": "Prestige",
+    "images": [
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 16,
+    "rating": 3.9,
+    "numReviews": 73,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-005",
+    "variants": []
+  },
+  {
+    "name": "Premium Brown High-Top Sneakers",
+    "description": "Premium high-top sneakers from Adidas, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 9300,
+    "category": "Footwear",
+    "brand": "Adidas",
+    "images": [
+      "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 22,
+    "rating": 4.2,
+    "numReviews": 231,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-006",
+    "variants": [
+      {
+        "size": "43",
+        "color": "Red",
+        "stock": 5,
+        "price": 9300
+      },
+      {
+        "size": "40",
+        "color": "Blue",
+        "stock": 7,
+        "price": 9600
+      },
+      {
+        "size": "41",
+        "color": "Brown",
+        "stock": 3,
+        "price": 9400
+      },
+      {
+        "size": "39",
+        "color": "Olive",
+        "stock": 7,
+        "price": 9400
+      }
+    ]
+  },
+  {
+    "name": "Comfort Olive Slim Fit Jeans",
+    "description": "Comfort slim fit jeans from Tommy Hilfiger, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 9200,
+    "category": "Clothing",
+    "brand": "Tommy Hilfiger",
+    "images": [
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 24,
+    "rating": 4.5,
+    "numReviews": 157,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-007",
+    "variants": [
+      {
+        "size": "L",
+        "color": "Black",
+        "stock": 10,
+        "price": 9500
+      },
+      {
+        "size": "S",
+        "color": "White",
+        "stock": 2,
+        "price": 9200
+      },
+      {
+        "size": "XL",
+        "color": "Red",
+        "stock": 12,
+        "price": 9300
+      }
+    ]
+  },
+  {
+    "name": "Essential Black True Wireless Earbuds",
+    "description": "Essential true wireless earbuds from JBL, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 20900,
+    "category": "Electronics",
+    "brand": "JBL",
+    "images": [
+      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 28,
+    "rating": 3.7,
+    "numReviews": 231,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-008",
+    "variants": []
+  },
+  {
+    "name": "Modern Olive Analog Watch",
+    "description": "Modern analog watch from Wildcraft, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 7000,
+    "category": "Accessories",
+    "brand": "Wildcraft",
+    "images": [
+      "https://images.unsplash.com/photo-1514477917009-389c76a86b68?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 10,
+    "rating": 4.2,
+    "numReviews": 189,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-009",
+    "variants": []
+  },
+  {
+    "name": "Modern Olive Throw Blanket",
+    "description": "Modern throw blanket from Home Centre, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 9300,
+    "category": "Home & Living",
+    "brand": "Home Centre",
+    "images": [
+      "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 21,
+    "rating": 4.4,
+    "numReviews": 44,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-010",
+    "variants": []
+  },
+  {
+    "name": "Classic Beige Running Shoes",
+    "description": "Classic running shoes from Skechers, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 10700,
+    "category": "Footwear",
+    "brand": "Skechers",
+    "images": [
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 30,
+    "rating": 4.5,
+    "numReviews": 145,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-011",
+    "variants": [
+      {
+        "size": "40",
+        "color": "Black",
+        "stock": 11,
+        "price": 10700
+      },
+      {
+        "size": "39",
+        "color": "Red",
+        "stock": 9,
+        "price": 10700
+      },
+      {
+        "size": "44",
+        "color": "White",
+        "stock": 10,
+        "price": 10800
+      }
+    ]
+  },
+  {
+    "name": "Comfort Grey Denim Jacket",
+    "description": "Comfort denim jacket from H&M, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 5700,
+    "category": "Clothing",
+    "brand": "H&M",
+    "images": [
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 27,
+    "rating": 4.5,
+    "numReviews": 20,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-012",
+    "variants": [
+      {
+        "size": "L",
+        "color": "Black",
+        "stock": 5,
+        "price": 5800
+      },
+      {
+        "size": "M",
+        "color": "Brown",
+        "stock": 7,
+        "price": 5700
+      },
+      {
+        "size": "XL",
+        "color": "Brown",
+        "stock": 10,
+        "price": 5800
+      },
+      {
+        "size": "S",
+        "color": "Black",
+        "stock": 5,
+        "price": 5700
+      }
+    ]
+  },
+  {
+    "name": "Comfort Grey Bluetooth Speaker",
+    "description": "Comfort bluetooth speaker from Sony, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 10600,
+    "category": "Electronics",
+    "brand": "Sony",
+    "images": [
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 26,
+    "rating": 4.2,
+    "numReviews": 143,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-013",
+    "variants": []
+  },
+  {
+    "name": "Lightweight Grey Crossbody Bag",
+    "description": "Lightweight crossbody bag from Casio, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 11500,
+    "category": "Accessories",
+    "brand": "Casio",
+    "images": [
+      "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1542291026-153?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 20,
+    "rating": 4.6,
+    "numReviews": 53,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-014",
+    "variants": []
+  },
+  {
+    "name": "Lightweight Black Wall Clock",
+    "description": "Lightweight wall clock from Prestige, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 9400,
+    "category": "Home & Living",
+    "brand": "Prestige",
+    "images": [
+      "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 8,
+    "rating": 3.7,
+    "numReviews": 191,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-015",
+    "variants": []
+  },
+  {
+    "name": "Urban Brown High-Top Sneakers",
+    "description": "Urban high-top sneakers from Adidas, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 6200,
+    "category": "Footwear",
+    "brand": "Adidas",
+    "images": [
+      "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 27,
+    "rating": 4.2,
+    "numReviews": 59,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-016",
+    "variants": [
+      {
+        "size": "40",
+        "color": "Black",
+        "stock": 10,
+        "price": 6200
+      },
+      {
+        "size": "39",
+        "color": "Black",
+        "stock": 12,
+        "price": 6200
+      },
+      {
+        "size": "42",
+        "color": "Grey",
+        "stock": 5,
+        "price": 6300
+      }
+    ]
+  },
+  {
+    "name": "Everyday Olive Slim Fit Jeans",
+    "description": "Everyday slim fit jeans from Zara, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 7600,
+    "category": "Clothing",
+    "brand": "Zara",
+    "images": [
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 33,
+    "rating": 4.8,
+    "numReviews": 140,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-017",
+    "variants": [
+      {
+        "size": "XL",
+        "color": "Brown",
+        "stock": 5,
+        "price": 7600
+      },
+      {
+        "size": "S",
+        "color": "Olive",
+        "stock": 10,
+        "price": 7600
+      },
+      {
+        "size": "L",
+        "color": "Black",
+        "stock": 7,
+        "price": 7600
+      },
+      {
+        "size": "M",
+        "color": "Brown",
+        "stock": 11,
+        "price": 7900
+      }
+    ]
+  },
+  {
+    "name": "Modern White True Wireless Earbuds",
+    "description": "Modern true wireless earbuds from Apple, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 20700,
+    "category": "Electronics",
+    "brand": "Apple",
+    "images": [
+      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 12,
+    "rating": 4.1,
+    "numReviews": 232,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-018",
+    "variants": []
+  },
+  {
+    "name": "Everyday Beige Analog Watch",
+    "description": "Everyday analog watch from Fossil, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 4800,
+    "category": "Accessories",
+    "brand": "Fossil",
+    "images": [
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 11,
+    "rating": 4.5,
+    "numReviews": 85,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-019",
+    "variants": []
+  },
+  {
+    "name": "Lightweight Beige Throw Blanket",
+    "description": "Lightweight throw blanket from Milton, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 2100,
+    "category": "Home & Living",
+    "brand": "Milton",
+    "images": [
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1517705008128-361805f42e86?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 5,
+    "rating": 4.2,
+    "numReviews": 149,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-020",
+    "variants": []
+  },
+  {
+    "name": "Signature White Running Shoes",
+    "description": "Signature running shoes from Adidas, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 7600,
+    "category": "Footwear",
+    "brand": "Adidas",
+    "images": [
+      "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 18,
+    "rating": 4.3,
+    "numReviews": 74,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-021",
+    "variants": [
+      {
+        "size": "43",
+        "color": "Olive",
+        "stock": 12,
+        "price": 7800
+      },
+      {
+        "size": "41",
+        "color": "Blue",
+        "stock": 3,
+        "price": 7700
+      },
+      {
+        "size": "39",
+        "color": "Olive",
+        "stock": 3,
+        "price": 7600
+      }
+    ]
+  },
+  {
+    "name": "Essential Brown Denim Jacket",
+    "description": "Essential denim jacket from H&M, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 5000,
+    "category": "Clothing",
+    "brand": "H&M",
+    "images": [
+      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 6,
+    "rating": 3.7,
+    "numReviews": 113,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-022",
+    "variants": []
+  },
+  {
+    "name": "Premium Brown Bluetooth Speaker",
+    "description": "Premium bluetooth speaker from Samsung, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 17600,
+    "category": "Electronics",
+    "brand": "Samsung",
+    "images": [
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 27,
+    "rating": 4.2,
+    "numReviews": 7,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-023",
+    "variants": []
+  },
+  {
+    "name": "Elite Blue Crossbody Bag",
+    "description": "Elite crossbody bag from Wildcraft, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 7000,
+    "category": "Accessories",
+    "brand": "Wildcraft",
+    "images": [
+      "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 9,
+    "rating": 3.7,
+    "numReviews": 98,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-024",
+    "variants": []
+  },
+  {
+    "name": "Modern Beige Wall Clock",
+    "description": "Modern wall clock from Philips, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 8300,
+    "category": "Home & Living",
+    "brand": "Philips",
+    "images": [
+      "https://images.unsplash.com/photo-1517705008128-361805f42e86?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 18,
+    "rating": 4.9,
+    "numReviews": 196,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-025",
+    "variants": []
+  },
+  {
+    "name": "Premium Navy High-Top Sneakers",
+    "description": "Premium high-top sneakers from Adidas, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 4800,
+    "category": "Footwear",
+    "brand": "Adidas",
+    "images": [
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 11,
+    "rating": 4.0,
+    "numReviews": 208,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-026",
+    "variants": [
+      {
+        "size": "44",
+        "color": "Grey",
+        "stock": 4,
+        "price": 4800
+      },
+      {
+        "size": "40",
+        "color": "White",
+        "stock": 2,
+        "price": 5100
+      },
+      {
+        "size": "41",
+        "color": "Blue",
+        "stock": 5,
+        "price": 5100
+      }
+    ]
+  },
+  {
+    "name": "Modern Olive Slim Fit Jeans",
+    "description": "Modern slim fit jeans from Levi's, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 6200,
+    "category": "Clothing",
+    "brand": "Levi's",
+    "images": [
+      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 24,
+    "rating": 4.8,
+    "numReviews": 53,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-027",
+    "variants": [
+      {
+        "size": "L",
+        "color": "Black",
+        "stock": 4,
+        "price": 6400
+      },
+      {
+        "size": "S",
+        "color": "Blue",
+        "stock": 3,
+        "price": 6500
+      },
+      {
+        "size": "XL",
+        "color": "Brown",
+        "stock": 7,
+        "price": 6500
+      },
+      {
+        "size": "M",
+        "color": "Grey",
+        "stock": 10,
+        "price": 6200
+      }
+    ]
+  },
+  {
+    "name": "Urban Beige True Wireless Earbuds",
+    "description": "Urban true wireless earbuds from JBL, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 14500,
+    "category": "Electronics",
+    "brand": "JBL",
+    "images": [
+      "https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 7,
+    "rating": 4.8,
+    "numReviews": 240,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-028",
+    "variants": []
+  },
+  {
+    "name": "Essential Olive Analog Watch",
+    "description": "Essential analog watch from Fossil, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 10000,
+    "category": "Accessories",
+    "brand": "Fossil",
+    "images": [
+      "https://images.unsplash.com/photo-1514477917009-389c76a86b68?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 18,
+    "rating": 4.0,
+    "numReviews": 183,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-029",
+    "variants": []
+  },
+  {
+    "name": "Premium Olive Throw Blanket",
+    "description": "Premium throw blanket from Prestige, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 6300,
+    "category": "Home & Living",
+    "brand": "Prestige",
+    "images": [
+      "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 22,
+    "rating": 4.7,
+    "numReviews": 82,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-030",
+    "variants": []
+  },
+  {
+    "name": "Lightweight Brown Running Shoes",
+    "description": "Lightweight running shoes from Puma, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 10100,
+    "category": "Footwear",
+    "brand": "Puma",
+    "images": [
+      "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 16,
+    "rating": 3.7,
+    "numReviews": 126,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-031",
+    "variants": [
+      {
+        "size": "44",
+        "color": "Black",
+        "stock": 6,
+        "price": 10300
+      },
+      {
+        "size": "40",
+        "color": "White",
+        "stock": 5,
+        "price": 10300
+      },
+      {
+        "size": "39",
+        "color": "Black",
+        "stock": 5,
+        "price": 10200
+      }
+    ]
+  },
+  {
+    "name": "Elite Grey Denim Jacket",
+    "description": "Elite denim jacket from Uniqlo, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 6700,
+    "category": "Clothing",
+    "brand": "Uniqlo",
+    "images": [
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 18,
+    "rating": 4.3,
+    "numReviews": 239,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-032",
+    "variants": [
+      {
+        "size": "S",
+        "color": "White",
+        "stock": 8,
+        "price": 6800
+      },
+      {
+        "size": "XL",
+        "color": "Black",
+        "stock": 10,
+        "price": 7000
+      }
+    ]
+  },
+  {
+    "name": "Comfort Beige Bluetooth Speaker",
+    "description": "Comfort bluetooth speaker from JBL, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 27800,
+    "category": "Electronics",
+    "brand": "JBL",
+    "images": [
+      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 29,
+    "rating": 4.8,
+    "numReviews": 161,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-033",
+    "variants": []
+  },
+  {
+    "name": "Lightweight Brown Crossbody Bag",
+    "description": "Lightweight crossbody bag from Ray-Ban, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 4800,
+    "category": "Accessories",
+    "brand": "Ray-Ban",
+    "images": [
+      "https://images.unsplash.com/photo-1514477917009-389c76a86b68?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 29,
+    "rating": 3.9,
+    "numReviews": 168,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-034",
+    "variants": []
+  },
+  {
+    "name": "Essential Brown Wall Clock",
+    "description": "Essential wall clock from Philips, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 2100,
+    "category": "Home & Living",
+    "brand": "Philips",
+    "images": [
+      "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 27,
+    "rating": 4.0,
+    "numReviews": 74,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-035",
+    "variants": []
+  },
+  {
+    "name": "Urban Navy High-Top Sneakers",
+    "description": "Urban high-top sneakers from Adidas, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 13300,
+    "category": "Footwear",
+    "brand": "Adidas",
+    "images": [
+      "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 9,
+    "rating": 4.1,
+    "numReviews": 236,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-036",
+    "variants": [
+      {
+        "size": "42",
+        "color": "Grey",
+        "stock": 7,
+        "price": 13600
+      },
+      {
+        "size": "44",
+        "color": "Red",
+        "stock": 2,
+        "price": 13400
+      }
+    ]
+  },
+  {
+    "name": "Everyday Brown Slim Fit Jeans",
+    "description": "Everyday slim fit jeans from Tommy Hilfiger, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 1800,
+    "category": "Clothing",
+    "brand": "Tommy Hilfiger",
+    "images": [
+      "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 14,
+    "rating": 4.6,
+    "numReviews": 223,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-037",
+    "variants": []
+  },
+  {
+    "name": "Urban Brown True Wireless Earbuds",
+    "description": "Urban true wireless earbuds from JBL, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 9100,
+    "category": "Electronics",
+    "brand": "JBL",
+    "images": [
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 13,
+    "rating": 4.2,
+    "numReviews": 12,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-038",
+    "variants": []
+  },
+  {
+    "name": "Premium Black Analog Watch",
+    "description": "Premium analog watch from Herschel, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 6500,
+    "category": "Accessories",
+    "brand": "Herschel",
+    "images": [
+      "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 23,
+    "rating": 4.3,
+    "numReviews": 11,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-039",
+    "variants": []
+  },
+  {
+    "name": "Premium Black Throw Blanket",
+    "description": "Premium throw blanket from Prestige, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 4500,
+    "category": "Home & Living",
+    "brand": "Prestige",
+    "images": [
+      "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 17,
+    "rating": 4.0,
+    "numReviews": 121,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-040",
+    "variants": []
+  },
+  {
+    "name": "Essential White Running Shoes",
+    "description": "Essential running shoes from New Balance, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 10500,
+    "category": "Footwear",
+    "brand": "New Balance",
+    "images": [
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 24,
+    "rating": 3.6,
+    "numReviews": 68,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-041",
+    "variants": [
+      {
+        "size": "41",
+        "color": "Red",
+        "stock": 12,
+        "price": 10500
+      },
+      {
+        "size": "40",
+        "color": "Red",
+        "stock": 12,
+        "price": 10500
+      }
+    ]
+  },
+  {
+    "name": "Premium Brown Denim Jacket",
+    "description": "Premium denim jacket from H&M, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 3200,
+    "category": "Clothing",
+    "brand": "H&M",
+    "images": [
+      "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 26,
+    "rating": 4.3,
+    "numReviews": 237,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-042",
+    "variants": [
+      {
+        "size": "L",
+        "color": "Red",
+        "stock": 11,
+        "price": 3200
+      },
+      {
+        "size": "M",
+        "color": "Black",
+        "stock": 4,
+        "price": 3400
+      },
+      {
+        "size": "S",
+        "color": "Blue",
+        "stock": 11,
+        "price": 3200
+      }
+    ]
+  },
+  {
+    "name": "Modern Olive Bluetooth Speaker",
+    "description": "Modern bluetooth speaker from Apple, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 25200,
+    "category": "Electronics",
+    "brand": "Apple",
+    "images": [
+      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 26,
+    "rating": 4.4,
+    "numReviews": 35,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-043",
+    "variants": []
+  },
+  {
+    "name": "Signature White Crossbody Bag",
+    "description": "Signature crossbody bag from Herschel, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 7900,
+    "category": "Accessories",
+    "brand": "Herschel",
+    "images": [
+      "https://images.unsplash.com/photo-1542291026-153?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 25,
+    "rating": 4.0,
+    "numReviews": 222,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-044",
+    "variants": []
+  },
+  {
+    "name": "Lightweight Blue Wall Clock",
+    "description": "Lightweight wall clock from Milton, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 6700,
+    "category": "Home & Living",
+    "brand": "Milton",
+    "images": [
+      "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 10,
+    "rating": 4.6,
+    "numReviews": 171,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-045",
+    "variants": []
+  },
+  {
+    "name": "Lightweight Navy High-Top Sneakers",
+    "description": "Lightweight high-top sneakers from New Balance, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 12000,
+    "category": "Footwear",
+    "brand": "New Balance",
+    "images": [
+      "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 16,
+    "rating": 3.6,
+    "numReviews": 222,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-046",
+    "variants": [
+      {
+        "size": "41",
+        "color": "Brown",
+        "stock": 5,
+        "price": 12300
+      },
+      {
+        "size": "42",
+        "color": "Blue",
+        "stock": 11,
+        "price": 12300
+      }
+    ]
+  },
+  {
+    "name": "Signature Olive Slim Fit Jeans",
+    "description": "Signature slim fit jeans from Levi's, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 9400,
+    "category": "Clothing",
+    "brand": "Levi's",
+    "images": [
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 26,
+    "rating": 3.9,
+    "numReviews": 182,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-047",
+    "variants": [
+      {
+        "size": "S",
+        "color": "Grey",
+        "stock": 5,
+        "price": 9700
+      },
+      {
+        "size": "L",
+        "color": "Olive",
+        "stock": 10,
+        "price": 9500
+      },
+      {
+        "size": "XL",
+        "color": "Grey",
+        "stock": 9,
+        "price": 9700
+      },
+      {
+        "size": "M",
+        "color": "Blue",
+        "stock": 2,
+        "price": 9400
+      }
+    ]
+  },
+  {
+    "name": "Comfort Beige True Wireless Earbuds",
+    "description": "Comfort true wireless earbuds from JBL, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 14300,
+    "category": "Electronics",
+    "brand": "JBL",
+    "images": [
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 28,
+    "rating": 4.3,
+    "numReviews": 95,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-048",
+    "variants": []
+  },
+  {
+    "name": "Signature White Analog Watch",
+    "description": "Signature analog watch from Ray-Ban, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 11000,
+    "category": "Accessories",
+    "brand": "Ray-Ban",
+    "images": [
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1542291026-153?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 22,
+    "rating": 4.8,
+    "numReviews": 181,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-049",
+    "variants": []
+  },
+  {
+    "name": "Comfort Olive Throw Blanket",
+    "description": "Comfort throw blanket from Home Centre, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 2400,
+    "category": "Home & Living",
+    "brand": "Home Centre",
+    "images": [
+      "https://images.unsplash.com/photo-1517705008128-361805f42e86?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 11,
+    "rating": 4.0,
+    "numReviews": 97,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-050",
+    "variants": []
+  },
+  {
+    "name": "Classic Olive Running Shoes",
+    "description": "Classic running shoes from Nike, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 13400,
+    "category": "Footwear",
+    "brand": "Nike",
+    "images": [
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 25,
+    "rating": 4.7,
+    "numReviews": 130,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-051",
+    "variants": []
+  },
+  {
+    "name": "Lightweight Brown Denim Jacket",
+    "description": "Lightweight denim jacket from Uniqlo, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 6100,
+    "category": "Clothing",
+    "brand": "Uniqlo",
+    "images": [
+      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 23,
+    "rating": 4.9,
+    "numReviews": 35,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-052",
+    "variants": [
+      {
+        "size": "XL",
+        "color": "Black",
+        "stock": 8,
+        "price": 6400
+      },
+      {
+        "size": "S",
+        "color": "White",
+        "stock": 11,
+        "price": 6100
+      },
+      {
+        "size": "L",
+        "color": "Black",
+        "stock": 4,
+        "price": 6300
+      }
+    ]
+  },
+  {
+    "name": "Urban Navy Bluetooth Speaker",
+    "description": "Urban bluetooth speaker from JBL, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 15000,
+    "category": "Electronics",
+    "brand": "JBL",
+    "images": [
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 19,
+    "rating": 4.0,
+    "numReviews": 155,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-053",
+    "variants": []
+  },
+  {
+    "name": "Urban Grey Crossbody Bag",
+    "description": "Urban crossbody bag from Fossil, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 4800,
+    "category": "Accessories",
+    "brand": "Fossil",
+    "images": [
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 26,
+    "rating": 3.7,
+    "numReviews": 66,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-054",
+    "variants": []
+  },
+  {
+    "name": "Lightweight Brown Wall Clock",
+    "description": "Lightweight wall clock from Prestige, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 4900,
+    "category": "Home & Living",
+    "brand": "Prestige",
+    "images": [
+      "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 6,
+    "rating": 3.9,
+    "numReviews": 185,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-055",
+    "variants": []
+  },
+  {
+    "name": "Essential Grey High-Top Sneakers",
+    "description": "Essential high-top sneakers from Adidas, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 9900,
+    "category": "Footwear",
+    "brand": "Adidas",
+    "images": [
+      "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 17,
+    "rating": 4.3,
+    "numReviews": 131,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-056",
+    "variants": [
+      {
+        "size": "40",
+        "color": "Red",
+        "stock": 2,
+        "price": 10000
+      },
+      {
+        "size": "41",
+        "color": "Grey",
+        "stock": 6,
+        "price": 10100
+      },
+      {
+        "size": "44",
+        "color": "Olive",
+        "stock": 3,
+        "price": 10200
+      },
+      {
+        "size": "39",
+        "color": "Blue",
+        "stock": 6,
+        "price": 10200
+      }
+    ]
+  },
+  {
+    "name": "Elite Olive Slim Fit Jeans",
+    "description": "Elite slim fit jeans from Levi's, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 2100,
+    "category": "Clothing",
+    "brand": "Levi's",
+    "images": [
+      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 29,
+    "rating": 4.1,
+    "numReviews": 90,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-057",
+    "variants": [
+      {
+        "size": "S",
+        "color": "Brown",
+        "stock": 4,
+        "price": 2400
+      },
+      {
+        "size": "L",
+        "color": "Blue",
+        "stock": 12,
+        "price": 2400
+      },
+      {
+        "size": "M",
+        "color": "Olive",
+        "stock": 4,
+        "price": 2400
+      },
+      {
+        "size": "XL",
+        "color": "Grey",
+        "stock": 9,
+        "price": 2100
+      }
+    ]
+  },
+  {
+    "name": "Everyday Brown True Wireless Earbuds",
+    "description": "Everyday true wireless earbuds from Samsung, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 10800,
+    "category": "Electronics",
+    "brand": "Samsung",
+    "images": [
+      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 26,
+    "rating": 4.8,
+    "numReviews": 213,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-058",
+    "variants": []
+  },
+  {
+    "name": "Modern Navy Analog Watch",
+    "description": "Modern analog watch from Wildcraft, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 8000,
+    "category": "Accessories",
+    "brand": "Wildcraft",
+    "images": [
+      "https://images.unsplash.com/photo-1542291026-153?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 5,
+    "rating": 4.5,
+    "numReviews": 143,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-059",
+    "variants": []
+  },
+  {
+    "name": "Lightweight Brown Throw Blanket",
+    "description": "Lightweight throw blanket from Home Centre, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 1800,
+    "category": "Home & Living",
+    "brand": "Home Centre",
+    "images": [
+      "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 11,
+    "rating": 3.9,
+    "numReviews": 38,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-060",
+    "variants": []
+  },
+  {
+    "name": "Urban Blue Running Shoes",
+    "description": "Urban running shoes from Skechers, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 8400,
+    "category": "Footwear",
+    "brand": "Skechers",
+    "images": [
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 19,
+    "rating": 4.7,
+    "numReviews": 125,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-061",
+    "variants": [
+      {
+        "size": "39",
+        "color": "Olive",
+        "stock": 9,
+        "price": 8400
+      },
+      {
+        "size": "40",
+        "color": "Olive",
+        "stock": 4,
+        "price": 8700
+      },
+      {
+        "size": "44",
+        "color": "Grey",
+        "stock": 6,
+        "price": 8600
+      }
+    ]
+  },
+  {
+    "name": "Elite Blue Denim Jacket",
+    "description": "Elite denim jacket from H&M, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 2600,
+    "category": "Clothing",
+    "brand": "H&M",
+    "images": [
+      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 12,
+    "rating": 4.2,
+    "numReviews": 90,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-062",
+    "variants": [
+      {
+        "size": "L",
+        "color": "Olive",
+        "stock": 2,
+        "price": 2800
+      },
+      {
+        "size": "XL",
+        "color": "Red",
+        "stock": 6,
+        "price": 2900
+      },
+      {
+        "size": "M",
+        "color": "Brown",
+        "stock": 4,
+        "price": 2900
+      }
+    ]
+  },
+  {
+    "name": "Urban Grey Bluetooth Speaker",
+    "description": "Urban bluetooth speaker from Samsung, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 18100,
+    "category": "Electronics",
+    "brand": "Samsung",
+    "images": [
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 17,
+    "rating": 3.9,
+    "numReviews": 203,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-063",
+    "variants": []
+  },
+  {
+    "name": "Everyday Blue Crossbody Bag",
+    "description": "Everyday crossbody bag from Herschel, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 7800,
+    "category": "Accessories",
+    "brand": "Herschel",
+    "images": [
+      "https://images.unsplash.com/photo-1514477917009-389c76a86b68?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 6,
+    "rating": 3.8,
+    "numReviews": 156,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-064",
+    "variants": []
+  },
+  {
+    "name": "Modern Brown Wall Clock",
+    "description": "Modern wall clock from Prestige, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 1300,
+    "category": "Home & Living",
+    "brand": "Prestige",
+    "images": [
+      "https://images.unsplash.com/photo-1517705008128-361805f42e86?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 28,
+    "rating": 3.8,
+    "numReviews": 227,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-065",
+    "variants": []
+  },
+  {
+    "name": "Modern Beige High-Top Sneakers",
+    "description": "Modern high-top sneakers from New Balance, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 13100,
+    "category": "Footwear",
+    "brand": "New Balance",
+    "images": [
+      "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 17,
+    "rating": 4.8,
+    "numReviews": 165,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-066",
+    "variants": []
+  },
+  {
+    "name": "Urban Olive Slim Fit Jeans",
+    "description": "Urban slim fit jeans from Zara, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 4700,
+    "category": "Clothing",
+    "brand": "Zara",
+    "images": [
+      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 6,
+    "rating": 3.7,
+    "numReviews": 96,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-067",
+    "variants": [
+      {
+        "size": "S",
+        "color": "Black",
+        "stock": 4,
+        "price": 4900
+      },
+      {
+        "size": "M",
+        "color": "Red",
+        "stock": 2,
+        "price": 4900
+      }
+    ]
+  },
+  {
+    "name": "Premium Blue True Wireless Earbuds",
+    "description": "Premium true wireless earbuds from JBL, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 7900,
+    "category": "Electronics",
+    "brand": "JBL",
+    "images": [
+      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 7,
+    "rating": 4.4,
+    "numReviews": 102,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-068",
+    "variants": []
+  },
+  {
+    "name": "Premium Grey Analog Watch",
+    "description": "Premium analog watch from Casio, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 7400,
+    "category": "Accessories",
+    "brand": "Casio",
+    "images": [
+      "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 25,
+    "rating": 3.9,
+    "numReviews": 70,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-069",
+    "variants": []
+  },
+  {
+    "name": "Comfort Blue Throw Blanket",
+    "description": "Comfort throw blanket from Milton, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 2100,
+    "category": "Home & Living",
+    "brand": "Milton",
+    "images": [
+      "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 19,
+    "rating": 4.8,
+    "numReviews": 155,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-070",
+    "variants": []
+  },
+  {
+    "name": "Lightweight Olive Running Shoes",
+    "description": "Lightweight running shoes from Puma, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 7000,
+    "category": "Footwear",
+    "brand": "Puma",
+    "images": [
+      "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 20,
+    "rating": 3.7,
+    "numReviews": 102,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-071",
+    "variants": []
+  },
+  {
+    "name": "Classic Navy Denim Jacket",
+    "description": "Classic denim jacket from Levi's, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 5300,
+    "category": "Clothing",
+    "brand": "Levi's",
+    "images": [
+      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 26,
+    "rating": 4.6,
+    "numReviews": 13,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-072",
+    "variants": [
+      {
+        "size": "S",
+        "color": "White",
+        "stock": 5,
+        "price": 5500
+      },
+      {
+        "size": "L",
+        "color": "Brown",
+        "stock": 12,
+        "price": 5400
+      },
+      {
+        "size": "M",
+        "color": "Olive",
+        "stock": 6,
+        "price": 5400
+      },
+      {
+        "size": "XL",
+        "color": "Blue",
+        "stock": 3,
+        "price": 5300
+      }
+    ]
+  },
+  {
+    "name": "Signature Navy Bluetooth Speaker",
+    "description": "Signature bluetooth speaker from Samsung, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 7900,
+    "category": "Electronics",
+    "brand": "Samsung",
+    "images": [
+      "https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 11,
+    "rating": 3.8,
+    "numReviews": 143,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-073",
+    "variants": []
+  },
+  {
+    "name": "Essential Brown Crossbody Bag",
+    "description": "Essential crossbody bag from Ray-Ban, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 11800,
+    "category": "Accessories",
+    "brand": "Ray-Ban",
+    "images": [
+      "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 14,
+    "rating": 4.6,
+    "numReviews": 91,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-074",
+    "variants": []
+  },
+  {
+    "name": "Everyday Beige Wall Clock",
+    "description": "Everyday wall clock from Philips, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 2300,
+    "category": "Home & Living",
+    "brand": "Philips",
+    "images": [
+      "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 30,
+    "rating": 4.1,
+    "numReviews": 72,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-075",
+    "variants": []
+  },
+  {
+    "name": "Elite Navy High-Top Sneakers",
+    "description": "Elite high-top sneakers from Puma, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 12600,
+    "category": "Footwear",
+    "brand": "Puma",
+    "images": [
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 8,
+    "rating": 4.5,
+    "numReviews": 125,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-076",
+    "variants": []
+  },
+  {
+    "name": "Elite Grey Slim Fit Jeans",
+    "description": "Elite slim fit jeans from Levi's, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 2600,
+    "category": "Clothing",
+    "brand": "Levi's",
+    "images": [
+      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 17,
+    "rating": 4.1,
+    "numReviews": 195,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-077",
+    "variants": [
+      {
+        "size": "L",
+        "color": "Black",
+        "stock": 4,
+        "price": 2600
+      },
+      {
+        "size": "XL",
+        "color": "Black",
+        "stock": 6,
+        "price": 2900
+      },
+      {
+        "size": "M",
+        "color": "Brown",
+        "stock": 3,
+        "price": 2700
+      },
+      {
+        "size": "S",
+        "color": "Grey",
+        "stock": 4,
+        "price": 2900
+      }
+    ]
+  },
+  {
+    "name": "Lightweight Navy True Wireless Earbuds",
+    "description": "Lightweight true wireless earbuds from Sony, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 27500,
+    "category": "Electronics",
+    "brand": "Sony",
+    "images": [
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 13,
+    "rating": 3.6,
+    "numReviews": 99,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-078",
+    "variants": []
+  },
+  {
+    "name": "Signature Beige Analog Watch",
+    "description": "Signature analog watch from Fossil, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 2200,
+    "category": "Accessories",
+    "brand": "Fossil",
+    "images": [
+      "https://images.unsplash.com/photo-1542291026-153?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 17,
+    "rating": 4.0,
+    "numReviews": 36,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-079",
+    "variants": []
+  },
+  {
+    "name": "Classic Black Throw Blanket",
+    "description": "Classic throw blanket from Home Centre, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 5400,
+    "category": "Home & Living",
+    "brand": "Home Centre",
+    "images": [
+      "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 12,
+    "rating": 4.9,
+    "numReviews": 206,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-080",
+    "variants": []
+  },
+  {
+    "name": "Urban Beige Running Shoes",
+    "description": "Urban running shoes from Adidas, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 6300,
+    "category": "Footwear",
+    "brand": "Adidas",
+    "images": [
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 8,
+    "rating": 4.7,
+    "numReviews": 38,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-081",
+    "variants": [
+      {
+        "size": "41",
+        "color": "Red",
+        "stock": 4,
+        "price": 6500
+      },
+      {
+        "size": "40",
+        "color": "Olive",
+        "stock": 4,
+        "price": 6300
+      }
+    ]
+  },
+  {
+    "name": "Premium Olive Denim Jacket",
+    "description": "Premium denim jacket from Zara, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 2400,
+    "category": "Clothing",
+    "brand": "Zara",
+    "images": [
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 32,
+    "rating": 4.4,
+    "numReviews": 12,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-082",
+    "variants": [
+      {
+        "size": "S",
+        "color": "Brown",
+        "stock": 9,
+        "price": 2600
+      },
+      {
+        "size": "L",
+        "color": "Grey",
+        "stock": 11,
+        "price": 2400
+      },
+      {
+        "size": "XL",
+        "color": "Brown",
+        "stock": 10,
+        "price": 2500
+      },
+      {
+        "size": "M",
+        "color": "Grey",
+        "stock": 2,
+        "price": 2600
+      }
+    ]
+  },
+  {
+    "name": "Modern Brown Bluetooth Speaker",
+    "description": "Modern bluetooth speaker from Logitech, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 21700,
+    "category": "Electronics",
+    "brand": "Logitech",
+    "images": [
+      "https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 19,
+    "rating": 3.7,
+    "numReviews": 25,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-083",
+    "variants": []
+  },
+  {
+    "name": "Elite Beige Crossbody Bag",
+    "description": "Elite crossbody bag from Wildcraft, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 6300,
+    "category": "Accessories",
+    "brand": "Wildcraft",
+    "images": [
+      "https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 24,
+    "rating": 4.3,
+    "numReviews": 121,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-084",
+    "variants": []
+  },
+  {
+    "name": "Comfort Grey Wall Clock",
+    "description": "Comfort wall clock from IKEA, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 6700,
+    "category": "Home & Living",
+    "brand": "IKEA",
+    "images": [
+      "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 19,
+    "rating": 4.8,
+    "numReviews": 110,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-085",
+    "variants": []
+  },
+  {
+    "name": "Signature Navy High-Top Sneakers",
+    "description": "Signature high-top sneakers from Nike, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 8500,
+    "category": "Footwear",
+    "brand": "Nike",
+    "images": [
+      "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 6,
+    "rating": 3.7,
+    "numReviews": 194,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-086",
+    "variants": [
+      {
+        "size": "44",
+        "color": "Red",
+        "stock": 3,
+        "price": 8500
+      },
+      {
+        "size": "42",
+        "color": "Grey",
+        "stock": 3,
+        "price": 8500
+      }
+    ]
+  },
+  {
+    "name": "Comfort Beige Slim Fit Jeans",
+    "description": "Comfort slim fit jeans from Tommy Hilfiger, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 3300,
+    "category": "Clothing",
+    "brand": "Tommy Hilfiger",
+    "images": [
+      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 29,
+    "rating": 4.7,
+    "numReviews": 94,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-087",
+    "variants": [
+      {
+        "size": "S",
+        "color": "Brown",
+        "stock": 7,
+        "price": 3300
+      },
+      {
+        "size": "M",
+        "color": "White",
+        "stock": 10,
+        "price": 3400
+      },
+      {
+        "size": "L",
+        "color": "White",
+        "stock": 12,
+        "price": 3600
+      }
+    ]
+  },
+  {
+    "name": "Comfort Black True Wireless Earbuds",
+    "description": "Comfort true wireless earbuds from Logitech, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 19000,
+    "category": "Electronics",
+    "brand": "Logitech",
+    "images": [
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 26,
+    "rating": 4.7,
+    "numReviews": 73,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-088",
+    "variants": []
+  },
+  {
+    "name": "Classic Blue Analog Watch",
+    "description": "Classic analog watch from Wildcraft, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 3300,
+    "category": "Accessories",
+    "brand": "Wildcraft",
+    "images": [
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 23,
+    "rating": 4.5,
+    "numReviews": 22,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-089",
+    "variants": []
+  },
+  {
+    "name": "Comfort Grey Throw Blanket",
+    "description": "Comfort throw blanket from IKEA, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 6000,
+    "category": "Home & Living",
+    "brand": "IKEA",
+    "images": [
+      "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 18,
+    "rating": 4.2,
+    "numReviews": 45,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-090",
+    "variants": []
+  },
+  {
+    "name": "Elite White Running Shoes",
+    "description": "Elite running shoes from Skechers, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 5100,
+    "category": "Footwear",
+    "brand": "Skechers",
+    "images": [
+      "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 39,
+    "rating": 4.2,
+    "numReviews": 77,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-091",
+    "variants": [
+      {
+        "size": "39",
+        "color": "Grey",
+        "stock": 12,
+        "price": 5400
+      },
+      {
+        "size": "44",
+        "color": "Grey",
+        "stock": 11,
+        "price": 5400
+      },
+      {
+        "size": "41",
+        "color": "Red",
+        "stock": 6,
+        "price": 5200
+      },
+      {
+        "size": "40",
+        "color": "Blue",
+        "stock": 10,
+        "price": 5100
+      }
+    ]
+  },
+  {
+    "name": "Urban Navy Denim Jacket",
+    "description": "Urban denim jacket from Zara, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 9400,
+    "category": "Clothing",
+    "brand": "Zara",
+    "images": [
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 16,
+    "rating": 4.1,
+    "numReviews": 185,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-092",
+    "variants": [
+      {
+        "size": "M",
+        "color": "Black",
+        "stock": 6,
+        "price": 9600
+      },
+      {
+        "size": "S",
+        "color": "Olive",
+        "stock": 2,
+        "price": 9700
+      },
+      {
+        "size": "XL",
+        "color": "White",
+        "stock": 8,
+        "price": 9500
+      }
+    ]
+  },
+  {
+    "name": "Modern Navy Bluetooth Speaker",
+    "description": "Modern bluetooth speaker from Samsung, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 25500,
+    "category": "Electronics",
+    "brand": "Samsung",
+    "images": [
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 28,
+    "rating": 3.7,
+    "numReviews": 9,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-093",
+    "variants": []
+  },
+  {
+    "name": "Everyday Navy Crossbody Bag",
+    "description": "Everyday crossbody bag from Casio, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 10500,
+    "category": "Accessories",
+    "brand": "Casio",
+    "images": [
+      "https://images.unsplash.com/photo-1542291026-153?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1514477917009-389c76a86b68?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 25,
+    "rating": 4.1,
+    "numReviews": 34,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-094",
+    "variants": []
+  },
+  {
+    "name": "Lightweight Beige Wall Clock",
+    "description": "Lightweight wall clock from Home Centre, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 2300,
+    "category": "Home & Living",
+    "brand": "Home Centre",
+    "images": [
+      "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 18,
+    "rating": 4.7,
+    "numReviews": 67,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-095",
+    "variants": []
+  },
+  {
+    "name": "Essential Beige High-Top Sneakers",
+    "description": "Essential high-top sneakers from New Balance, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 7300,
+    "category": "Footwear",
+    "brand": "New Balance",
+    "images": [
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 17,
+    "rating": 4.8,
+    "numReviews": 170,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-096",
+    "variants": [
+      {
+        "size": "43",
+        "color": "Red",
+        "stock": 10,
+        "price": 7400
+      },
+      {
+        "size": "39",
+        "color": "Olive",
+        "stock": 7,
+        "price": 7500
+      }
+    ]
+  },
+  {
+    "name": "Elite Blue Slim Fit Jeans",
+    "description": "Elite slim fit jeans from H&M, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 2700,
+    "category": "Clothing",
+    "brand": "H&M",
+    "images": [
+      "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 36,
+    "rating": 4.3,
+    "numReviews": 84,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-097",
+    "variants": [
+      {
+        "size": "XL",
+        "color": "White",
+        "stock": 12,
+        "price": 2900
+      },
+      {
+        "size": "M",
+        "color": "Grey",
+        "stock": 9,
+        "price": 2700
+      },
+      {
+        "size": "L",
+        "color": "Red",
+        "stock": 9,
+        "price": 2900
+      },
+      {
+        "size": "S",
+        "color": "Blue",
+        "stock": 6,
+        "price": 2700
+      }
+    ]
+  },
+  {
+    "name": "Modern White True Wireless Earbuds",
+    "description": "Modern true wireless earbuds from Samsung, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 19200,
+    "category": "Electronics",
+    "brand": "Samsung",
+    "images": [
+      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 24,
+    "rating": 4.3,
+    "numReviews": 123,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-098",
+    "variants": []
+  },
+  {
+    "name": "Lightweight Grey Analog Watch",
+    "description": "Lightweight analog watch from Fossil, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 5600,
+    "category": "Accessories",
+    "brand": "Fossil",
+    "images": [
+      "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 24,
+    "rating": 4.2,
+    "numReviews": 43,
+    "isFeatured": false,
+    "isActive": true,
+    "sku": "SKU-099",
+    "variants": []
+  },
+  {
+    "name": "Modern Blue Throw Blanket",
+    "description": "Modern throw blanket from Milton, designed for daily comfort, reliable quality, and a clean modern look.",
+    "price": 1700,
+    "category": "Home & Living",
+    "brand": "Milton",
+    "images": [
+      "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "stock": 12,
+    "rating": 4.5,
+    "numReviews": 117,
+    "isFeatured": true,
+    "isActive": true,
+    "sku": "SKU-100",
+    "variants": []
+  }
+]

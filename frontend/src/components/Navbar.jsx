@@ -1,16 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import { ShoppingCart, Heart, User, Search, Menu } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import useAuthStore from "../store/useAuthStore";
 
 export default function Navbar() {
   const { authUser, logout } = useAuthStore();
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleProtectedNavigation = (path) => {
+    if (!authUser) {
+      toast.error("Please login first");
+      navigate("/login");
+      return;
+    }
+
+    if (!authUser.isVerified) {
+      toast.error("Please verify your email first");
+      navigate("/verify-email");
+      return;
+    }
+
+    navigate(path);
+  };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+
+    const trimmed = searchTerm.trim();
+
+    if (!trimmed) {
+      navigate("/shop");
+      return;
+    }
+
+    navigate(`/shop?search=${encodeURIComponent(trimmed)}`);
+    setSearchTerm("");
+  };
 
   return (
     <div className="navbar bg-base-100 shadow-md px-3 sm:px-4 lg:px-8 sticky top-0 z-50">
       {/* Left */}
       <div className="navbar-start">
-        {/* Mobile Menu */}
         <div className="dropdown lg:hidden">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
             <Menu className="w-5 h-5" />
@@ -38,7 +70,6 @@ export default function Navbar() {
           </ul>
         </div>
 
-        {/* Logo */}
         <Link
           to="/"
           className="btn btn-ghost text-lg sm:text-xl font-bold text-primary px-2"
@@ -47,7 +78,7 @@ export default function Navbar() {
         </Link>
       </div>
 
-      {/* Center - Desktop Menu */}
+      {/* Center */}
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 font-medium gap-1">
           <li>
@@ -69,41 +100,73 @@ export default function Navbar() {
       </div>
 
       {/* Right */}
-      <div className="navbar-end gap-1 sm:gap-2">
-        {/* Search - hidden on very small devices */}
-        <div className="hidden md:flex items-center bg-base-200 rounded-full px-3 py-2 w-40 lg:w-56">
-          <Search className="w-4 h-4 text-gray-500 mr-2 shrink-0" />
+      <div className="navbar-end gap-2 items-center">
+        <form
+          onSubmit={handleSearchSubmit}
+          className="hidden md:flex items-center bg-base-200 rounded-full px-3 h-11 w-40 lg:w-56"
+        >
+          <button
+            type="submit"
+            className="shrink-0 flex items-center justify-center"
+          >
+            <Search className="w-4 h-4 text-gray-500 mr-2" />
+          </button>
+
           <input
             type="text"
             placeholder="Search products..."
             className="bg-transparent outline-none w-full text-sm"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
-        </div>
+        </form>
 
-        {/* Wishlist */}
-        {authUser?.isVerified && (
-          <button className="btn btn-ghost btn-circle relative">
-            <Heart className="w-5 h-5" />
+        <button
+          type="button"
+          onClick={() => handleProtectedNavigation("/wishlist")}
+          className="btn btn-ghost btn-circle relative flex items-center justify-center"
+        >
+          <Heart className="w-5 h-5" />
+          {authUser?.isVerified && (
             <span className="badge badge-sm badge-primary absolute -top-1 -right-1">
               2
             </span>
-          </button>
-        )}
-
-        {/* Cart */}
-        <button className="btn btn-ghost btn-circle relative">
-          <ShoppingCart className="w-5 h-5" />
-          <span className="badge badge-sm badge-secondary absolute -top-1 -right-1">
-            3
-          </span>
+          )}
         </button>
 
-        {/* Auth Section */}
+        <button
+          type="button"
+          onClick={() => handleProtectedNavigation("/cart")}
+          className="btn btn-ghost btn-circle relative flex items-center justify-center"
+        >
+          <ShoppingCart className="w-5 h-5" />
+          {authUser?.isVerified && (
+            <span className="badge badge-sm badge-secondary absolute -top-1 -right-1">
+              3
+            </span>
+          )}
+        </button>
+
         {authUser ? (
           <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-9 sm:w-10 rounded-full bg-primary text-primary-content flex items-center justify-center">
-                <User className="w-5 h-5" />
+            <label
+              tabIndex={0}
+              className="btn btn-ghost btn-circle flex items-center justify-center p-0"
+            >
+              <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center bg-primary text-primary-content border border-base-300">
+                {authUser?.profilePic ? (
+                  <img
+                    src={authUser.profilePic}
+                    alt="Profile"
+                    className="w-full h-full object-cover"
+                  />
+                ) : authUser?.name ? (
+                  <span className="text-sm font-semibold leading-none">
+                    {authUser.name.charAt(0).toUpperCase()}
+                  </span>
+                ) : (
+                  <User className="w-5 h-5" />
+                )}
               </div>
             </label>
 
@@ -111,15 +174,28 @@ export default function Navbar() {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[100] p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <Link to="/profile">My Profile</Link>
+              <li className="px-2 py-1 text-xs text-base-content/60">
+                {authUser?.email || "Account"}
               </li>
+
               <li>
-                <Link to="/orders">Orders</Link>
+                <button onClick={() => handleProtectedNavigation("/profile")}>
+                  My Profile
+                </button>
               </li>
+
               <li>
-                <Link to="/wishlist">Wishlist</Link>
+                <button onClick={() => handleProtectedNavigation("/orders")}>
+                  Orders
+                </button>
               </li>
+
+              <li>
+                <button onClick={() => handleProtectedNavigation("/wishlist")}>
+                  Wishlist
+                </button>
+              </li>
+
               <li>
                 <button onClick={logout}>Logout</button>
               </li>

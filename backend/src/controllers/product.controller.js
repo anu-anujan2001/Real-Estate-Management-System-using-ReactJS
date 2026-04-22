@@ -107,7 +107,7 @@ const getAllProducts = asyncHandler(async (req, res) => {
     maxPrice,
     sort = "newest",
     page = 1,
-    limit = 10,
+    limit = 12,
   } = req.query;
 
   const query = {};
@@ -164,6 +164,32 @@ const getAllProducts = asyncHandler(async (req, res) => {
     totalProducts,
     totalPages: Math.ceil(totalProducts / limitNumber),
     currentPage: pageNumber,
+  });
+});
+
+// 🔹 GET CATEGORY SUMMARY
+const getCategorySummary = asyncHandler(async (req, res) => {
+  const categories = await Product.aggregate([
+    { $match: { isActive: true } },
+    {
+      $group: {
+        _id: "$category",
+        count: { $sum: 1 },
+        sampleImage: { $first: { $arrayElemAt: ["$images", 0] } },
+      },
+    },
+    { $sort: { _id: 1 } },
+  ]);
+
+  const formattedCategories = categories.map((item) => ({
+    title: item._id,
+    count: item.count,
+    image: item.sampleImage || "/no-image.png",
+  }));
+
+  res.status(200).json({
+    success: true,
+    categories: formattedCategories,
   });
 });
 
@@ -350,12 +376,72 @@ const toggleActiveStatus = asyncHandler(async (req, res) => {
   });
 });
 
+// get all products for admin with filters and pagination
+const getAllProductsAdmin = asyncHandler(async (req, res) => {
+  const { page = 1, limit = 10, search = "", category = "", active } = req.query;
+
+  const filters = {};
+
+  if (search) {
+    filters.name = { $regex: search, $options: "i" };
+  }
+
+  if (category) {
+    filters.category = category;
+  }
+
+  if (active !== undefined) {
+    filters.isActive = active === "true";
+  }
+
+  const total = await Product.countDocuments(filters);
+  const products = await Product.find(filters)
+    .skip((page - 1) * limit)
+    .limit(Number(limit));
+
+  res.status(200).json({
+    success: true,
+    total,
+    page: Number(page),
+    limit: Number(limit),
+    products,
+  });
+});
+
+const getBrandSummary = asyncHandler(async (req, res) => {
+  const brands = await Product.aggregate([
+    { $match: { isActive: true, brand: { $ne: "" } } },
+    {
+      $group: {
+        _id: "$brand",
+        count: { $sum: 1 },
+      },
+    },
+    { $sort: { count: -1 } },
+    { $limit: 8 },
+  ]);
+
+  const formattedBrands = brands.map((item) => ({
+    name: item._id,
+    count: item.count,
+  }));
+
+  res.status(200).json({
+    success: true,
+    brands: formattedBrands,
+  });
+});
+
+
 module.exports = {
   createProduct,
   getAllProducts,
+  getCategorySummary,
+  getBrandSummary,
   getSingleProduct,
   updateProduct,
   deleteProduct,
   toggleFeaturedProduct,
   toggleActiveStatus,
+  getAllProductsAdmin,
 };

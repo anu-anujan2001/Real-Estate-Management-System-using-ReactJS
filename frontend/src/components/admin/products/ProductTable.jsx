@@ -1,9 +1,22 @@
 import { Link } from "react-router-dom";
 import { Pencil, Trash2 } from "lucide-react";
 import useProductStore from "../../../store/useProductStore";
+import toast from "react-hot-toast";
 
 export default function ProductTable() {
-  const { products } = useProductStore();
+  const { products, deleteProduct, isDeletingProduct } = useProductStore();
+
+  // 🔥 DELETE HANDLER
+  const handleDelete = async (id, name) => {
+    const confirmDelete = window.confirm(
+      `Are you sure you want to delete "${name}"?`,
+    );
+
+    if (!confirmDelete) return;
+
+    await deleteProduct(id);
+  };
+
   return (
     <div className="overflow-x-auto">
       <table className="table">
@@ -37,7 +50,6 @@ export default function ProductTable() {
 
                   <div>
                     <p className="font-medium">{product.name}</p>
-                    {/* optional: show small secondary info */}
                     <p className="text-xs text-base-content/60">
                       {product.variants?.length > 0
                         ? `${product.variants.length} variants`
@@ -74,6 +86,7 @@ export default function ProductTable() {
 
               <td>
                 <div className="flex justify-end gap-2">
+                  {/* EDIT */}
                   <Link
                     to={`/admin/products/edit/${product._id}`}
                     className="btn btn-sm btn-outline"
@@ -81,8 +94,17 @@ export default function ProductTable() {
                     <Pencil size={16} />
                   </Link>
 
-                  <button className="btn btn-sm btn-outline btn-error">
-                    <Trash2 size={16} />
+                  {/* DELETE */}
+                  <button
+                    onClick={() => handleDelete(product._id, product.name)}
+                    className="btn btn-sm btn-outline btn-error"
+                    disabled={isDeletingProduct}
+                  >
+                    {isDeletingProduct ? (
+                      <span className="loading loading-spinner loading-xs"></span>
+                    ) : (
+                      <Trash2 size={16} />
+                    )}
                   </button>
                 </div>
               </td>

@@ -20,6 +20,10 @@ const useProductStore = create((set, get) => ({
   featuredProducts: [],
   categoryProducts: [],
   selectedProduct: null,
+  categories: [],
+  isLoadingCategories: false,
+  brands: [],
+  isLoadingBrands: false,
 
   totalProducts: 0,
   totalPages: 1,
@@ -76,13 +80,22 @@ const useProductStore = create((set, get) => ({
         currentPage: res.data.currentPage || 1,
         filters: mergedFilters,
       });
+
+      return {
+        success: true,
+        products: res.data.products || [],
+        totalProducts: res.data.totalProducts || 0,
+        totalPages: res.data.totalPages || 1,
+        currentPage: res.data.currentPage || 1,
+      };
     } catch (err) {
       toast.error(err.response?.data?.message || "Failed to fetch products");
+      return { success: false, products: [] };
     } finally {
       set({ isLoadingProducts: false });
     }
   },
-  // FETCH SINGLE PRODUCT BY ID
+
   fetchProductById: async (id) => {
     set({ isLoadingProduct: true, selectedProduct: null });
 
@@ -94,31 +107,6 @@ const useProductStore = create((set, get) => ({
       toast.error(err.response?.data?.message || "Failed to fetch product");
     } finally {
       set({ isLoadingProduct: false });
-    }
-  },
-  // CREATE NEW PRODUCT
-  createProduct: async (formData) => {
-    set({ isCreatingProduct: true });
-
-    try {
-      const res = await axiosInstance.post("/product", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-
-      set((state) => ({
-        products: [res.data.product, ...state.products],
-      }));
-
-      toast.success(res.data.message || "Product created successfully");
-      return { success: true, product: res.data.product };
-    } catch (err) {
-      const message = err.response?.data?.message || "Failed to create product";
-      toast.error(message);
-      return { success: false, message };
-    } finally {
-      set({ isCreatingProduct: false });
     }
   },
   // UPDATE PRODUCT BY ID
@@ -229,6 +217,25 @@ const useProductStore = create((set, get) => ({
       set({ isTogglingFeatured: false });
     }
   },
+
+  // FETCH FEATURED PRODUCTS
+  fetchFeaturedProducts: async () => {
+    set({ isLoadingProducts: true });
+
+    try {
+      const res = await axiosInstance.get("/product", {
+        params: { featured: true, limit: 8 },
+      });
+
+      set({
+        featuredProducts: res.data.products || [],
+      });
+    } catch (err) {
+      toast.error("Failed to fetch featured products");
+    } finally {
+      set({ isLoadingProducts: false });
+    }
+  },
   // TOGGLE ACTIVE STATUS
   toggleActiveStatus: async (id) => {
     set({ isTogglingActive: true });
@@ -266,6 +273,32 @@ const useProductStore = create((set, get) => ({
       return { success: false, message };
     } finally {
       set({ isTogglingActive: false });
+    }
+  },
+
+  fetchCategorySummary: async () => {
+    set({ isLoadingCategories: true });
+
+    try {
+      const res = await axiosInstance.get("/product/categories");
+      set({ categories: res.data.categories || [] });
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Failed to fetch categories");
+    } finally {
+      set({ isLoadingCategories: false });
+    }
+  },
+
+  fetchBrandSummary: async () => {
+    set({ isLoadingBrands: true });
+
+    try {
+      const res = await axiosInstance.get("/product/brands/summary");
+      set({ brands: res.data.brands || [] });
+    } catch (err) {
+      toast.error("Failed to fetch brands");
+    } finally {
+      set({ isLoadingBrands: false });
     }
   },
 }));

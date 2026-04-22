@@ -20,25 +20,6 @@ const getUserProfile = asyncHandler(async (req, res) => {
     
 });
 
-// to get public user profile by id
-const getPublicUserProfile = asyncHandler(async (req, res) => {
-  try {
-    const userId = req.params.id;
-    const user = await User.findById(userId).select('-password -verificationToken -resetPasswordToken');
-
-    if (!user) {
-      res.status(404);
-      throw new Error("User not found");
-        }
-    res.status(200).json({
-      user,
-    });
-  } catch (error) {
-    console.error("Error fetching public user profile:", error.message);
-    res.status(500).json({ message: "Server error fetching public user profile" });
-    }
-    
-});
 
 // to update user profile
 const updateUserProfile = asyncHandler(async (req, res) => {
@@ -76,10 +57,42 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     
 });
 
+// get all users
+
+const getAllUsers = asyncHandler(async (req, res) => {
+    try {
+      const users = await User.find().select("-password");
+      res.status(200).json({ users });
+  }
+    catch (error) {
+      console.error("Error fetching users:", error.message);
+      res.status(500).json({ message: "Server error fetching users" });
+  }
+});
+
+
+// delete user (admin only) - optional, not implemented in routes yet
+const deleteUser = asyncHandler(async (req, res) => {
+    try {
+      const userId = req.params.id;
+      const userToDelete = await User.findById(userId);
+      if (!userToDelete) {
+        res.status(404);
+        throw new Error("User not found");
+      }
+      await userToDelete.remove();
+      res.status(200).json({ message: "User deleted successfully" });
+  }
+    catch (error) {
+      console.error("Error deleting user:", error.message);
+      res.status(500).json({ message: "Server error deleting user" });
+  }
+});
+
 
 module.exports = {
     getUserProfile,
     updateUserProfile,
-    getPublicUserProfile
-    
+    getAllUsers,
+    deleteUser,
 };
