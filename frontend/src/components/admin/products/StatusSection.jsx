@@ -4,12 +4,12 @@ export default function StatusSection({
   handleSubmit,
   mode,
   onCancel,
+  isSubmitting,
 }) {
   return (
     <div className="bg-base-100 rounded-2xl border border-base-300 p-5 space-y-4">
       <h3 className="text-lg font-semibold">Publish Settings</h3>
 
-      {/* toggles */}
       <label className="label cursor-pointer justify-start gap-3">
         <input
           type="checkbox"
@@ -32,19 +32,26 @@ export default function StatusSection({
         <span className="label-text">Active Product</span>
       </label>
 
-      {/* buttons */}
       <button
         type="button"
         onClick={handleSubmit}
         className="btn btn-primary w-full"
+        disabled={isSubmitting}
       >
-        {mode === "edit" ? "Update Product" : "Save Product"}
+        {isSubmitting
+          ? mode === "edit"
+            ? "Updating..."
+            : "Saving..."
+          : mode === "edit"
+            ? "Update Product"
+            : "Save Product"}
       </button>
 
       <button
         type="button"
         onClick={onCancel}
         className="btn btn-outline w-full"
+        disabled={isSubmitting}
       >
         Cancel
       </button>

@@ -41,7 +41,7 @@ export default function AdminProductsPage() {
       </div>
 
       <div className="bg-base-100 rounded-2xl border border-base-300 p-4 md:p-5">
-        <ProductTable products={adminProducts} />
+        <ProductTable/>
       </div>
     </div>
   );

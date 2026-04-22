@@ -5,6 +5,7 @@ import PricingStockSection from "./PricingStockSection";
 import ImagesSection from "./ImagesSection";
 import StatusSection from "./StatusSection";
 import VariantsSection from "./VariantsSection";
+import useProductStore from "../../../store/useProductStore";
 
 const defaultFormData = {
   name: "",
@@ -13,9 +14,8 @@ const defaultFormData = {
   category: "",
   brand: "",
   images: [],
-  stock: "",
-  rating: 0,
-  numReviews: 0,
+  newImages: [],
+  imagePreviews: [],
   isFeatured: false,
   isActive: true,
   sku: "",
@@ -24,6 +24,9 @@ const defaultFormData = {
 
 export default function ProductForm({ initialData = null, mode = "create" }) {
   const navigate = useNavigate();
+  const { createProduct, updateProduct, isCreatingProduct, isUpdatingProduct } =
+    useProductStore();
+
   const [formData, setFormData] = useState(defaultFormData);
 
   useEffect(() => {
@@ -35,9 +38,8 @@ export default function ProductForm({ initialData = null, mode = "create" }) {
         category: initialData.category || "",
         brand: initialData.brand || "",
         images: initialData.images || [],
-        stock: initialData.stock ?? "",
-        rating: initialData.rating ?? 0,
-        numReviews: initialData.numReviews ?? 0,
+        newImages: [],
+        imagePreviews: [],
         isFeatured: initialData.isFeatured ?? false,
         isActive: initialData.isActive ?? true,
         sku: initialData.sku || "",
@@ -59,18 +61,30 @@ export default function ProductForm({ initialData = null, mode = "create" }) {
 
   const handleImageUpload = (e) => {
     const files = Array.from(e.target.files);
+
+    if (!files.length) return;
+
     const previews = files.map((file) => URL.createObjectURL(file));
 
     setFormData((prev) => ({
       ...prev,
-      images: [...prev.images, ...previews],
+      newImages: [...prev.newImages, ...files],
+      imagePreviews: [...prev.imagePreviews, ...previews],
     }));
   };
 
-  const removeImage = (index) => {
+  const removeExistingImage = (index) => {
     setFormData((prev) => ({
       ...prev,
       images: prev.images.filter((_, i) => i !== index),
+    }));
+  };
+
+  const removeNewImage = (index) => {
+    setFormData((prev) => ({
+      ...prev,
+      newImages: prev.newImages.filter((_, i) => i !== index),
+      imagePreviews: prev.imagePreviews.filter((_, i) => i !== index),
     }));
   };
 
@@ -90,7 +104,8 @@ export default function ProductForm({ initialData = null, mode = "create" }) {
 
   const handleVariantChange = (index, field, value) => {
     const updatedVariants = [...formData.variants];
-    updatedVariants[index][field] = value;
+    updatedVariants[index][field] =
+      field === "stock" || field === "price" ? Number(value) : value;
 
     setFormData((prev) => ({
       ...prev,
@@ -98,13 +113,44 @@ export default function ProductForm({ initialData = null, mode = "create" }) {
     }));
   };
 
-  const handleSubmit = () => {
-    if (mode === "edit") {
-      console.log("Update Product:", formData);
+  const buildProductFormData = () => {
+    const payload = new FormData();
+
+    payload.append("name", formData.name);
+    payload.append("description", formData.description);
+    payload.append("price", formData.price);
+    payload.append("category", formData.category);
+    payload.append("brand", formData.brand);
+    payload.append("sku", formData.sku);
+    payload.append("isFeatured", formData.isFeatured);
+    payload.append("isActive", formData.isActive);
+    payload.append("variants", JSON.stringify(formData.variants));
+    payload.append("existingImages", JSON.stringify(formData.images));
+
+    formData.newImages.forEach((file) => {
+      payload.append("images", file);
+    });
+
+    return payload;
+  };
+
+  const handleSubmit = async () => {
+    const payload = buildProductFormData();
+
+    let result;
+
+    if (mode === "edit" && initialData?._id) {
+      result = await updateProduct(initialData._id, payload);
     } else {
-      console.log("Create Product:", formData);
+      result = await createProduct(payload);
+    }
+
+    if (result?.success) {
+      navigate("/admin/products");
     }
   };
+
+  const isSubmitting = mode === "edit" ? isUpdatingProduct : isCreatingProduct;
 
   return (
     <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
@@ -123,13 +169,15 @@ export default function ProductForm({ initialData = null, mode = "create" }) {
         <ImagesSection
           formData={formData}
           handleImageUpload={handleImageUpload}
-          removeImage={removeImage}
+          removeExistingImage={removeExistingImage}
+          removeNewImage={removeNewImage}
         />
         <StatusSection
           formData={formData}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
           mode={mode}
+          isSubmitting={isSubmitting}
           onCancel={() => navigate("/admin/products")}
         />
       </div>

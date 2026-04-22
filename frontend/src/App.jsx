@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import EmailVerificationPage from "./pages/EmailVerificationPage";
 import useAuthStore from "./store/useAuthStore";
+import useProductStore from "./store/useProductStore";
 
 import AdminLayout from "./components/admin/layout/AdminLayout";
 import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
@@ -19,10 +20,16 @@ import AdminEditProductPage from "./pages/admin/AdminEditProductPage";
 
 function App() {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
+  const { fetchProducts, products } = useProductStore();
 
   useEffect(() => {
     checkAuth();
-  }, [checkAuth]);
+    fetchProducts();
+  }, [checkAuth, fetchProducts]);
+
+  console.log("Authenticated User:", authUser);
+  console.log("Checking Auth:", isCheckingAuth);
+  console.log("Products:", products);
 
   if (isCheckingAuth) {
     return (

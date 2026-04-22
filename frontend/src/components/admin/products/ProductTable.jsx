@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { Pencil, Trash2 } from "lucide-react";
+import useProductStore from "../../../store/useProductStore";
 
-export default function ProductTable({ products }) {
+export default function ProductTable() {
+  const { products } = useProductStore();
   return (
     <div className="overflow-x-auto">
       <table className="table">

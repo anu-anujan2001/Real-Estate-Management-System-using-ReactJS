@@ -191,7 +191,6 @@ const getSingleProduct = asyncHandler(async (req, res) => {
   });
 });
 
-// 🔹 UPDATE PRODUCT
 const updateProduct = asyncHandler(async (req, res) => {
   const { id } = req.params;
 
@@ -217,15 +216,34 @@ const updateProduct = asyncHandler(async (req, res) => {
     }
   }
 
-  // 🔹 Images (keep old + add new)
-  let uploadedImages = [...product.images];
+  // ✅ 🔹 FIXED IMAGE HANDLING
+
+  // 1. get images user kept
+  let existingImages = [];
+
+  if (req.body.existingImages) {
+    try {
+      existingImages =
+        typeof req.body.existingImages === "string"
+          ? JSON.parse(req.body.existingImages)
+          : req.body.existingImages;
+    } catch (err) {
+      return res.status(400).json({ message: "Invalid existingImages format" });
+    }
+  }
+
+  // 2. upload new images
+  let newImages = [];
 
   if (req.files && req.files.length > 0) {
     for (const file of req.files) {
       const result = await uploadToCloudinary(file.buffer, "products");
-      uploadedImages.push(result.secure_url);
+      newImages.push(result.secure_url);
     }
   }
+
+  // 3. final images = kept + new
+  product.images = [...existingImages, ...newImages];
 
   // 🔹 Variants
   const parsedVariants = req.body.variants
@@ -246,7 +264,6 @@ const updateProduct = asyncHandler(async (req, res) => {
   product.brand =
     req.body.brand !== undefined ? req.body.brand.trim() : product.brand;
 
-  product.images = uploadedImages;
   product.sku = req.body.sku?.trim() || product.sku;
   product.variants = parsedVariants;
 

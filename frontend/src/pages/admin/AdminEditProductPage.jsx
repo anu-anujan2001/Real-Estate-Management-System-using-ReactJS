@@ -1,21 +1,55 @@
-import { useMemo } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import PageHeader from "../../components/common/PageHeader";
 import ProductForm from "../../components/admin/products/ProductForm";
-import { adminProducts } from "../../data/adminProductsData";
+import useProductStore from "../../store/useProductStore";
 
 export default function AdminEditProductPage() {
   const { id } = useParams();
 
-  const product = useMemo(
-    () => adminProducts.find((item) => item._id === id),
-    [id],
-  );
+  const {
+    selectedProduct,
+    isLoadingProduct,
+    fetchProductById,
+    clearSelectedProduct,
+  } = useProductStore();
 
-  if (!product) {
+  useEffect(() => {
+    if (id) {
+      fetchProductById(id);
+    }
+
+    return () => {
+      clearSelectedProduct();
+    };
+  }, [id, fetchProductById, clearSelectedProduct]);
+
+  if (isLoadingProduct) {
     return (
       <div className="space-y-6">
-        <PageHeader title="Edit Product" subtitle="Update product details" />
+        <PageHeader
+          title="Edit Product"
+          subtitle="Loading product details..."
+          showBack
+          backPath="/admin/products"
+        />
+
+        <div className="bg-base-100 rounded-2xl border border-base-300 p-6">
+          <p className="text-base-content/60">Loading product...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!selectedProduct) {
+    return (
+      <div className="space-y-6">
+        <PageHeader
+          title="Edit Product"
+          subtitle="Update product details"
+          showBack
+          backPath="/admin/products"
+        />
 
         <div className="bg-base-100 rounded-2xl border border-base-300 p-6">
           <h2 className="text-xl font-bold">Product not found</h2>
@@ -36,7 +70,7 @@ export default function AdminEditProductPage() {
         backPath="/admin/products"
       />
 
-      <ProductForm initialData={product} mode="edit" />
+      <ProductForm initialData={selectedProduct} mode="edit" />
     </div>
   );
 }
