@@ -13,8 +13,12 @@ import CategoriesPage from "./pages/CategoriesPage";
 import SingleProductPage from "./pages/SingleProductPage";
 import WishlistPage from "./pages/WishlistPage";
 import ContactPage from "./pages/ContactPage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
+import CartPage from "./pages/CartPage";
 
 import useAuthStore from "./store/useAuthStore";
+import useCartStore from "./store/useCartStore";
 
 import AdminLayout from "./components/admin/layout/AdminLayout";
 import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
@@ -26,10 +30,19 @@ import AdminRoute from "./routes/AdminRoute";
 
 function App() {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
+  const { fetchCart, resetCart } = useCartStore();
 
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
+
+  useEffect(() => {
+    if (authUser) {
+      fetchCart();
+    } else {
+      resetCart();
+    }
+  }, [authUser, fetchCart, resetCart]);
 
   if (isCheckingAuth) {
     return (
@@ -44,7 +57,6 @@ function App() {
       {(!authUser || authUser.role !== "admin") && <Navbar />}
 
       <Routes>
-        {/* PUBLIC PAGES */}
         <Route
           path="/"
           element={
@@ -78,7 +90,50 @@ function App() {
           }
         />
 
-        {/* AUTH PAGES */}
+        <Route
+          path="/product/:id"
+          element={
+            authUser?.role === "admin" ? (
+              <Navigate to="/admin" replace />
+            ) : (
+              <SingleProductPage />
+            )
+          }
+        />
+
+        <Route
+          path="/wishlist"
+          element={
+            authUser?.role === "admin" ? (
+              <Navigate to="/admin" replace />
+            ) : (
+              <WishlistPage />
+            )
+          }
+        />
+
+        <Route
+          path="/contact"
+          element={
+            authUser?.role === "admin" ? (
+              <Navigate to="/admin" replace />
+            ) : (
+              <ContactPage />
+            )
+          }
+        />
+
+        <Route
+          path="/cart"
+          element={
+            authUser?.role === "admin" ? (
+              <Navigate to="/admin" replace />
+            ) : (
+              <CartPage />
+            )
+          }
+        />
+
         <Route
           path="/login"
           element={
@@ -129,38 +184,21 @@ function App() {
             )
           }
         />
+
         <Route
-          path="/product/:id"
+          path="/forgot-password"
           element={
-            authUser?.role === "admin" ? (
-              <Navigate to="/admin" replace />
-            ) : (
-              <SingleProductPage />
-            )
+            !authUser ? <ForgotPasswordPage /> : <Navigate to="/" replace />
           }
         />
 
-          <Route
-          path="/wishlist"
-          element={
-            authUser?.role === "admin" ? (
-              <Navigate to="/admin" replace />
-            ) : (
-              <WishlistPage />
-            )
-          }
-        />
         <Route
-          path="/contact"
+          path="/reset-password/:token"
           element={
-            authUser?.role === "admin" ? (
-              <Navigate to="/admin" replace />
-            ) : (
-              <ContactPage />
-            )
+            !authUser ? <ResetPasswordPage /> : <Navigate to="/" replace />
           }
         />
-        {/* ADMIN */}
+
         <Route
           path="/admin"
           element={

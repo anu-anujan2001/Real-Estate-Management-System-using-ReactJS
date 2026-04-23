@@ -2,16 +2,17 @@ import { Link, useNavigate } from "react-router-dom";
 import { Heart, ShoppingCart, Star, Eye } from "lucide-react";
 import toast from "react-hot-toast";
 import useAuthStore from "../../store/useAuthStore";
+import useCartStore from "../../store/useCartStore";
 
 export default function ShopProductCard({
   product,
   isWishlisted = false,
   onToggleWishlist,
-  onAddToCart,
 }) {
   const inStock = Number(product?.stock || 0) > 0;
   const navigate = useNavigate();
   const { authUser } = useAuthStore();
+  const { addToCart, isUpdatingCart } = useCartStore();
 
   const requireLogin = () => {
     if (!authUser) {
@@ -19,6 +20,13 @@ export default function ShopProductCard({
       navigate("/login");
       return false;
     }
+
+    if (!authUser.isVerified) {
+      toast.error("Please verify your email first");
+      navigate("/verify-email");
+      return false;
+    }
+
     return true;
   };
 
@@ -27,9 +35,22 @@ export default function ShopProductCard({
     onToggleWishlist?.(product._id);
   };
 
-  const handleAddToCartClick = () => {
+  const handleAddToCartClick = async () => {
     if (!requireLogin()) return;
-    onAddToCart?.(product);
+
+    const hasVariants =
+      Array.isArray(product?.variants) && product.variants.length > 0;
+
+    if (hasVariants) {
+      toast.error("Please select variant from product page");
+      navigate(`/product/${product._id}`);
+      return;
+    }
+
+    await addToCart({
+      productId: product._id,
+      quantity: 1,
+    });
   };
 
   return (
@@ -70,7 +91,7 @@ export default function ShopProductCard({
             <button
               type="button"
               onClick={handleAddToCartClick}
-              disabled={!inStock}
+              disabled={!inStock || isUpdatingCart}
               className="btn btn-primary rounded-xl"
             >
               <ShoppingCart size={16} />
@@ -118,7 +139,7 @@ export default function ShopProductCard({
           <button
             type="button"
             onClick={handleAddToCartClick}
-            disabled={!inStock}
+            disabled={!inStock || isUpdatingCart}
             className="btn btn-primary rounded-xl"
           >
             <ShoppingCart size={16} />

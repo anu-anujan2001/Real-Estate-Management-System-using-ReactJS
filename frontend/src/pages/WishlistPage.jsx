@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Heart, ShoppingCart, Trash2, ArrowLeft } from "lucide-react";
-import toast from "react-hot-toast";
 import useWishlistStore from "../store/useWishlistStore";
 import useAuthStore from "../store/useAuthStore";
+import useCartStore from "../store/useCartStore";
 
 export default function WishlistPage() {
   const navigate = useNavigate();
@@ -16,6 +16,8 @@ export default function WishlistPage() {
     isUpdatingWishlist,
   } = useWishlistStore();
 
+  const { addToCart } = useCartStore();
+
   useEffect(() => {
     if (authUser) {
       fetchWishlist();
@@ -27,7 +29,10 @@ export default function WishlistPage() {
   };
 
   const handleAddToCart = (product) => {
-    toast.success(`${product.name} added to cart`);
+    addToCart({
+      productId: product._id,
+      quantity: 1,
+    });
   };
 
   if (!authUser) {

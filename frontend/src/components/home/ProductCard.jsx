@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import { Heart, ShoppingCart, Star } from "lucide-react";
+import { Heart, ShoppingCart, Star, Eye } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import useAuthStore from "../../store/useAuthStore";
 import useWishlistStore from "../../store/useWishlistStore";
+import useCartStore from "../../store/useCartStore";
 
 export default function ProductCard({ product }) {
   const navigate = useNavigate();
@@ -16,6 +17,8 @@ export default function ProductCard({ product }) {
     isLoadingWishlist,
     clearWishlist,
   } = useWishlistStore();
+
+  const { addToCart, isUpdatingCart } = useCartStore();
 
   useEffect(() => {
     if (authUser) {
@@ -55,9 +58,22 @@ export default function ProductCard({ product }) {
     toggleWishlist(product._id);
   };
 
-  const handleAddToCart = () => {
+  const handleAddToCart = async () => {
     if (!requireLogin()) return;
-    toast.success("Added to cart");
+
+    const hasVariants =
+      Array.isArray(product?.variants) && product.variants.length > 0;
+
+    if (hasVariants) {
+      toast.error("Please select variant from product page");
+      navigate(`/product/${product._id}`);
+      return;
+    }
+
+    await addToCart({
+      productId: product._id,
+      quantity: 1,
+    });
   };
 
   return (
@@ -108,19 +124,34 @@ export default function ProductCard({ product }) {
           </span>
         </div>
 
+        <p className="text-sm text-base-content/60 line-clamp-2 min-h-[40px] mt-2">
+          {product.description}
+        </p>
+
         <div className="flex items-center justify-between mt-3">
           <span className="text-xl font-bold text-primary">
             Rs. {Number(product.price || 0).toLocaleString()}
           </span>
+        </div>
 
+        <div className="grid grid-cols-2 gap-3 mt-4">
           <button
             type="button"
             onClick={handleAddToCart}
-            disabled={product.stock <= 0}
-            className="btn btn-primary btn-sm rounded-full"
+            disabled={product.stock <= 0 || isUpdatingCart}
+            className="btn btn-primary rounded-xl"
           >
             <ShoppingCart className="w-4 h-4" />
+            Add
           </button>
+
+          <Link
+            to={`/product/${product._id}`}
+            className="btn btn-outline rounded-xl"
+          >
+            <Eye className="w-4 h-4" />
+            View
+          </Link>
         </div>
 
         {product.stock > 0 ? (

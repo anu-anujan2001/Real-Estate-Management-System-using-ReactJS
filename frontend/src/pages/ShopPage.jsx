@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import useProductStore from "../store/useProductStore";
+import useCartStore from "../store/useCartStore";
 import ShopLayout from "../components/shop/ShopLayout";
 
 export default function ShopPage() {
@@ -23,6 +24,8 @@ export default function ShopPage() {
     isLoadingProducts,
   } = useProductStore();
 
+  const { addToCart } = useCartStore();
+
   useEffect(() => {
     fetchBrandSummary();
   }, [fetchBrandSummary]);
@@ -44,6 +47,13 @@ export default function ShopPage() {
     const updatedFilters = { ...filters, ...newValues };
     setFilters(updatedFilters);
     fetchProducts(updatedFilters);
+  };
+
+  const handleAddToCart = (product) => {
+    addToCart({
+      productId: product._id,
+      quantity: 1,
+    });
   };
 
   const handlers = {
@@ -81,6 +91,7 @@ export default function ShopPage() {
       currentPage={currentPage}
       filters={filters}
       isLoadingProducts={isLoadingProducts}
+      onAddToCart={handleAddToCart}
       {...handlers}
     />
   );

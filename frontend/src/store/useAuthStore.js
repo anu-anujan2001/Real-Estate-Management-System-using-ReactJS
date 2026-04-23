@@ -13,6 +13,8 @@ const useAuthStore = create((set) => ({
   isResendingCode: false,
   isCheckingAuth: true,
   isGettingUsers: false,
+  isForgottingPassword: false,
+  isResettingPassword: false,
 
   checkAuth: async () => {
     try {
@@ -94,6 +96,39 @@ const useAuthStore = create((set) => ({
       toast.error(err.response?.data?.message || "Failed to resend code");
     } finally {
       set({ isResendingCode: false });
+    }
+  },
+
+  forgotPassword: async (email) => {
+    set({ isForgottingPassword: true });
+    try {
+      const res = await axiosInstance.post("/auth/forgot-password", { email });
+      toast.success(res.data.message || "Password reset email sent");
+      return { success: true };
+    } catch (err) {
+      const message =
+        err.response?.data?.message || "Failed to send reset email";
+      toast.error(message);
+      return { success: false, message };
+    } finally {
+      set({ isForgottingPassword: false });
+    }
+  },
+
+  resetPassword: async (token, newPassword) => {
+    set({ isResettingPassword: true });
+    try {
+      const res = await axiosInstance.post(`/auth/reset-password/${token}`, {
+        newPassword,
+      });
+      toast.success(res.data.message || "Password reset successful");
+      return { success: true };
+    } catch (err) {
+      const message = err.response?.data?.message || "Failed to reset password";
+      toast.error(message);
+      return { success: false, message };
+    } finally {
+      set({ isResettingPassword: false });
     }
   },
 

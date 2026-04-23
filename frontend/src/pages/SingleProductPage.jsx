@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import {
   Heart,
@@ -13,12 +13,14 @@ import useAuthStore from "../store/useAuthStore";
 import useProductStore from "../store/useProductStore";
 import useWishlistStore from "../store/useWishlistStore";
 import ShopProductCard from "../components/shop/ShopProductCard";
+import useCartStore from "../store/useCartStore";
 
 export default function SingleProductPage() {
   const { id } = useParams();
   const navigate = useNavigate();
 
   const { authUser } = useAuthStore();
+  const { addToCart } = useCartStore();
   const {
     selectedProduct,
     isLoadingProduct,
@@ -36,6 +38,7 @@ export default function SingleProductPage() {
   } = useWishlistStore();
 
   const [selectedImage, setSelectedImage] = useState("");
+  const [selectedVariantIndex, setSelectedVariantIndex] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [isLoadingRelated, setIsLoadingRelated] = useState(false);
@@ -62,6 +65,15 @@ export default function SingleProductPage() {
     if (selectedProduct?.images?.length > 0) {
       setSelectedImage(selectedProduct.images[0]);
     }
+  }, [selectedProduct]);
+
+  useEffect(() => {
+    if (selectedProduct?.variants?.length > 0) {
+      setSelectedVariantIndex(0);
+    } else {
+      setSelectedVariantIndex(null);
+    }
+    setQuantity(1);
   }, [selectedProduct]);
 
   useEffect(() => {
@@ -120,19 +132,60 @@ export default function SingleProductPage() {
         )
       : false;
 
-  const handleAddToCart = () => {
-    if (!requireLogin()) return;
-    toast.success(`Added ${quantity} item(s) to cart`);
-  };
+  const selectedVariant =
+    selectedVariantIndex !== null &&
+    selectedProduct?.variants?.[selectedVariantIndex]
+      ? selectedProduct.variants[selectedVariantIndex]
+      : null;
+
+  const hasVariants = Boolean(selectedProduct?.variants?.length);
+
+  const displayPrice =
+    selectedVariant?.price !== undefined && selectedVariant?.price !== null
+      ? selectedVariant.price
+      : selectedProduct?.price || 0;
+
+  const displayStock = hasVariants
+    ? Number(selectedVariant?.stock || 0)
+    : Number(selectedProduct?.stock || 0);
+
+  const inStock = displayStock > 0;
+
+  const variantLabel = useMemo(() => {
+    if (!selectedVariant) return "";
+    const parts = [];
+    if (selectedVariant.size) parts.push(`Size: ${selectedVariant.size}`);
+    if (selectedVariant.color) parts.push(`Color: ${selectedVariant.color}`);
+    return parts.join(" • ");
+  }, [selectedVariant]);
 
   const handleWishlist = async () => {
     if (!requireLogin()) return;
     await toggleWishlist(selectedProduct._id);
   };
 
+  const handleAddToCart = async () => {
+    if (!requireLogin()) return;
+
+    if (hasVariants && !selectedVariant) {
+      toast.error("Please select a variant");
+      return;
+    }
+
+    await addToCart({
+      productId: selectedProduct._id,
+      quantity,
+      variant: selectedVariant
+        ? {
+            size: selectedVariant.size || "",
+            color: selectedVariant.color || "",
+          }
+        : null,
+    });
+  };
+
   const handleIncrease = () => {
-    if (!selectedProduct) return;
-    if (quantity < selectedProduct.stock) {
+    if (quantity < displayStock) {
       setQuantity((prev) => prev + 1);
     }
   };
@@ -141,6 +194,11 @@ export default function SingleProductPage() {
     if (quantity > 1) {
       setQuantity((prev) => prev - 1);
     }
+  };
+
+  const handleVariantSelect = (index) => {
+    setSelectedVariantIndex(index);
+    setQuantity(1);
   };
 
   if (isLoadingProduct) {
@@ -172,8 +230,6 @@ export default function SingleProductPage() {
       </div>
     );
   }
-
-  const inStock = Number(selectedProduct.stock || 0) > 0;
 
   return (
     <div className="min-h-screen bg-base-200">
@@ -234,7 +290,7 @@ export default function SingleProductPage() {
               {selectedProduct.name}
             </h1>
 
-            <div className="flex items-center gap-4 mt-4">
+            <div className="flex items-center gap-4 mt-4 flex-wrap">
               <div className="flex items-center gap-1">
                 <Star size={18} className="fill-yellow-400 text-yellow-400" />
                 <span className="font-medium">
@@ -255,7 +311,15 @@ export default function SingleProductPage() {
 
             <div className="mt-6">
               <p className="text-3xl font-bold text-primary">
-                Rs. {Number(selectedProduct.price || 0).toLocaleString()}
+                Rs. {Number(displayPrice || 0).toLocaleString()}
+              </p>
+              {hasVariants && variantLabel && (
+                <p className="text-sm text-base-content/60 mt-2">
+                  Selected: {variantLabel}
+                </p>
+              )}
+              <p className="text-sm text-base-content/60 mt-1">
+                Available stock: {displayStock}
               </p>
             </div>
 
@@ -266,22 +330,55 @@ export default function SingleProductPage() {
               </p>
             </div>
 
-            {selectedProduct.variants?.length > 0 && (
+            {hasVariants && (
               <div className="mt-6">
-                <h3 className="font-semibold text-lg mb-3">
-                  Available Variants
-                </h3>
+                <h3 className="font-semibold text-lg mb-3">Select Variant</h3>
+
                 <div className="flex flex-wrap gap-3">
-                  {selectedProduct.variants.map((variant, index) => (
-                    <div
-                      key={index}
-                      className="border border-base-300 rounded-xl px-4 py-2 text-sm bg-base-200"
-                    >
-                      {variant.size && <span>Size: {variant.size} </span>}
-                      {variant.color && <span>• Color: {variant.color} </span>}
-                      <span>• Stock: {variant.stock}</span>
-                    </div>
-                  ))}
+                  {selectedProduct.variants.map((variant, index) => {
+                    const isSelected = selectedVariantIndex === index;
+                    const variantStock = Number(variant.stock || 0);
+                    const variantPrice =
+                      variant.price !== undefined && variant.price !== null
+                        ? variant.price
+                        : selectedProduct.price;
+
+                    return (
+                      <button
+                        key={`${variant.size}-${variant.color}-${index}`}
+                        type="button"
+                        onClick={() => handleVariantSelect(index)}
+                        className={`rounded-xl border px-4 py-3 text-left min-w-[160px] transition ${
+                          isSelected
+                            ? "border-primary bg-primary text-white"
+                            : "border-base-300 bg-base-200 hover:border-primary"
+                        }`}
+                      >
+                        <div className="font-medium">
+                          {variant.size || "Default Size"}
+                          {variant.color ? ` • ${variant.color}` : ""}
+                        </div>
+                        <div
+                          className={`text-sm mt-1 ${
+                            isSelected
+                              ? "text-white/90"
+                              : "text-base-content/60"
+                          }`}
+                        >
+                          Rs. {Number(variantPrice || 0).toLocaleString()}
+                        </div>
+                        <div
+                          className={`text-xs mt-1 ${
+                            isSelected
+                              ? "text-white/80"
+                              : "text-base-content/50"
+                          }`}
+                        >
+                          Stock: {variantStock}
+                        </div>
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
             )}
@@ -303,7 +400,7 @@ export default function SingleProductPage() {
                 <button
                   onClick={handleIncrease}
                   className="btn btn-outline btn-square rounded-xl"
-                  disabled={!inStock}
+                  disabled={!inStock || quantity >= displayStock}
                 >
                   <Plus size={16} />
                 </button>
@@ -356,7 +453,9 @@ export default function SingleProductPage() {
             </div>
 
             <Link
-              to={`/shop?category=${encodeURIComponent(selectedProduct.category)}`}
+              to={`/shop?category=${encodeURIComponent(
+                selectedProduct.category,
+              )}`}
               className="btn btn-outline rounded-xl"
             >
               View More
@@ -385,9 +484,12 @@ export default function SingleProductPage() {
                     key={product._id}
                     product={product}
                     isWishlisted={relatedIsWishlisted}
-                    onAddToCart={() => {
+                    onAddToCart={(product) => {
                       if (!requireLogin()) return;
-                      toast.success("Added to cart");
+                      addToCart({
+                        productId: product._id,
+                        quantity: 1,
+                      });
                     }}
                     onToggleWishlist={async (productId) => {
                       if (!requireLogin()) return;

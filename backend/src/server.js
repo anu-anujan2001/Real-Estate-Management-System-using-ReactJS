@@ -8,6 +8,7 @@ const authRoutes = require('./routes/auth.route');
 const userRoutes = require('./routes/user.route');
 const productRoutes = require('./routes/product.route');
 const wishlistRoutes = require('./routes/wishlist.route');
+const cartRoutes = require("./routes/cart.route");
 
 
 const app = express();
@@ -25,7 +26,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/product', productRoutes);
 app.use('/api/wishlist', wishlistRoutes);
-
+app.use('/api/cart', cartRoutes);
 // Error handling middleware
 app.use(errorMiddleware);
 

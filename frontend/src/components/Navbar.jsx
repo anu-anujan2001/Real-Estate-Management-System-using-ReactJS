@@ -4,21 +4,25 @@ import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import useAuthStore from "../store/useAuthStore";
 import useWishlistStore from "../store/useWishlistStore";
+import useCartStore from "../store/useCartStore";
 
 export default function Navbar() {
   const { authUser, logout } = useAuthStore();
   const { wishlist, fetchWishlist, clearWishlist } = useWishlistStore();
+  const { fetchCart, resetCart, getCartTotals } = useCartStore();
 
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
 
-  useEffect(() => {
-    if (authUser) {
-      fetchWishlist();
-    } else {
-      clearWishlist();
-    }
-  }, [authUser, fetchWishlist, clearWishlist]);
+ useEffect(() => {
+   if (authUser) {
+     fetchWishlist();
+     fetchCart();
+   } else {
+     clearWishlist();
+     resetCart();
+   }
+ }, [authUser, fetchWishlist, clearWishlist, fetchCart, resetCart]);
 
   const handleProtectedNavigation = (path) => {
     if (!authUser) {
@@ -52,10 +56,12 @@ export default function Navbar() {
 
   const handleLogout = async () => {
     clearWishlist();
+    useCartStore.getState().resetCart();
     await logout();
   };
 
   const wishlistCount = authUser ? wishlist.length : 0;
+  const { itemsCount } = getCartTotals();
 
   return (
     <div className="navbar bg-base-100 shadow-md px-3 sm:px-4 lg:px-8 sticky top-0 z-50">
@@ -155,9 +161,9 @@ export default function Navbar() {
           className="btn btn-ghost btn-circle relative flex items-center justify-center"
         >
           <ShoppingCart className="w-5 h-5" />
-          {authUser?.isVerified && (
+          {authUser?.isVerified && itemsCount > 0 && (
             <span className="badge badge-sm badge-secondary absolute -top-1 -right-1">
-              3
+              {itemsCount}
             </span>
           )}
         </button>
@@ -198,19 +204,21 @@ export default function Navbar() {
                   My Profile
                 </button>
               </li>
-
               <li>
                 <button onClick={() => handleProtectedNavigation("/orders")}>
                   Orders
                 </button>
               </li>
-
               <li>
                 <button onClick={() => handleProtectedNavigation("/wishlist")}>
                   Wishlist
                 </button>
               </li>
-
+              <li>
+                <button onClick={() => handleProtectedNavigation("/cart")}>
+                  Cart
+                </button>
+              </li>
               <li>
                 <button onClick={handleLogout}>Logout</button>
               </li>
