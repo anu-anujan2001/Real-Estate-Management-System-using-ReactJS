@@ -5,12 +5,14 @@ import {
   ShoppingCart,
   Users,
   Settings,
+  MessageCircle,
 } from "lucide-react";
 
 const menuItems = [
   { name: "Dashboard", path: "/admin", icon: <LayoutDashboard size={18} /> },
   { name: "Products", path: "/admin/products", icon: <Package size={18} /> },
   { name: "Orders", path: "/admin/orders", icon: <ShoppingCart size={18} /> },
+  //{ name: "Live Chat", path: "/admin/chat", icon: <MessageCircle size={18} /> },
   { name: "Users", path: "/admin/users", icon: <Users size={18} /> },
   { name: "Settings", path: "/admin/settings", icon: <Settings size={18} /> },
 ];

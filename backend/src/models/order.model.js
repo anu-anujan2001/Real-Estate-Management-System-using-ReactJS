@@ -7,13 +7,36 @@ const orderItemSchema = new mongoose.Schema(
       ref: "Product",
       required: true,
     },
-    name: String,
-    image: String,
-    price: Number,
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    image: {
+      type: String,
+      default: "",
+    },
+    price: {
+      type: Number,
+      required: true,
+      min: 0,
+    },
     quantity: {
       type: Number,
       required: true,
       min: 1,
+    },
+    variant: {
+      size: {
+        type: String,
+        trim: true,
+        default: "",
+      },
+      color: {
+        type: String,
+        trim: true,
+        default: "",
+      },
     },
   },
   { _id: false },
@@ -21,12 +44,54 @@ const orderItemSchema = new mongoose.Schema(
 
 const shippingAddressSchema = new mongoose.Schema(
   {
-    fullName: { type: String, required: true },
-    phone: { type: String, required: true },
-    address: { type: String, required: true },
-    city: { type: String, required: true },
-    postalCode: { type: String },
-    country: { type: String, default: "Sri Lanka" },
+    fullName: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    phone: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    address: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    city: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    postalCode: {
+      type: String,
+      trim: true,
+      default: "",
+    },
+    country: {
+      type: String,
+      trim: true,
+      default: "Sri Lanka",
+    },
+  },
+  { _id: false },
+);
+
+const paymentResultSchema = new mongoose.Schema(
+  {
+    id: {
+      type: String,
+      default: "",
+    },
+    status: {
+      type: String,
+      default: "",
+    },
+    email_address: {
+      type: String,
+      default: "",
+    },
   },
   { _id: false },
 );
@@ -39,21 +104,32 @@ const orderSchema = new mongoose.Schema(
       required: true,
     },
 
-    orderItems: [orderItemSchema],
+    orderItems: {
+      type: [orderItemSchema],
+      required: true,
+      validate: {
+        validator: function (value) {
+          return Array.isArray(value) && value.length > 0;
+        },
+        message: "Order must contain at least one item",
+      },
+    },
 
-    shippingAddress: shippingAddressSchema,
+    shippingAddress: {
+      type: shippingAddressSchema,
+      required: true,
+    },
 
     paymentMethod: {
       type: String,
       enum: ["COD", "CARD"],
+      required: true,
       default: "COD",
     },
 
     paymentResult: {
-      id: String,
-      status: String,
-      update_time: String,
-      email_address: String,
+      type: paymentResultSchema,
+      default: undefined,
     },
 
     itemsPrice: {
@@ -85,24 +161,42 @@ const orderSchema = new mongoose.Schema(
       default: false,
     },
 
-    paidAt: Date,
+    paidAt: {
+      type: Date,
+      default: null,
+    },
 
     isDelivered: {
       type: Boolean,
       default: false,
     },
 
-    deliveredAt: Date,
+    deliveredAt: {
+      type: Date,
+      default: null,
+    },
 
     orderStatus: {
       type: String,
-      enum: ["Pending", "Processing", "Shipped", "Delivered", "Cancelled"],
+      enum: [
+        "Pending",
+        "Paid",
+        "Processing",
+        "Shipped",
+        "Delivered",
+        "Cancelled",
+      ],
       default: "Pending",
     },
+
+    stripeSessionId: {
+      type: String,
+      default: "",
+      unique: true,
+      sparse: true,
+    },
   },
-  {
-    timestamps: true,
-  },
+  { timestamps: true },
 );
 
 module.exports = mongoose.model("Order", orderSchema);

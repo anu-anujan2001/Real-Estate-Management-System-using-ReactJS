@@ -235,7 +235,10 @@ export default function CartPage() {
                   </div>
                 </div>
 
-                <button className="btn btn-primary w-full rounded-xl mt-5">
+                <button
+                  onClick={() => navigate("/checkout")}
+                  className="btn btn-primary w-full rounded-xl mt-5"
+                >
                   Proceed to Checkout
                 </button>
 

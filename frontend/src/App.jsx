@@ -16,6 +16,11 @@ import ContactPage from "./pages/ContactPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
 import CartPage from "./pages/CartPage";
+import CheckoutPage from "./pages/CheckoutPage";
+import OrderSuccessPage from "./pages/OrderSuccessPage";
+import OrdersPage from "./pages/OrdersPage";
+import OrderDetailsPage from "./pages/OrderDetailsPage";
+
 
 import useAuthStore from "./store/useAuthStore";
 import useCartStore from "./store/useCartStore";
@@ -26,6 +31,7 @@ import AdminProductsPage from "./pages/admin/AdminProductsPage";
 import AdminCreateProductPage from "./pages/admin/AdminCreateProductPage";
 import AdminEditProductPage from "./pages/admin/AdminEditProductPage";
 import AdminUsersPage from "./pages/admin/AdminUsersPage";
+
 import AdminRoute from "./routes/AdminRoute";
 
 function App() {
@@ -135,6 +141,50 @@ function App() {
         />
 
         <Route
+          path="/checkout"
+          element={
+            authUser?.role === "admin" ? (
+              <Navigate to="/admin" replace />
+            ) : (
+              <CheckoutPage />
+            )
+          }
+        />
+
+        <Route
+          path="/order-success"
+          element={
+            authUser?.role === "admin" ? (
+              <Navigate to="/admin" replace />
+            ) : (
+              <OrderSuccessPage />
+            )
+          }
+        />
+
+        <Route
+          path="/orders"
+          element={
+            authUser?.role === "admin" ? (
+              <Navigate to="/admin" replace />
+            ) : (
+              <OrdersPage />
+            )
+          }
+        />
+
+        <Route
+          path="/orders/:id"
+          element={
+            authUser?.role === "admin" ? (
+              <Navigate to="/admin" replace />
+            ) : (
+              <OrderDetailsPage />
+            )
+          }
+        />
+
+        <Route
           path="/login"
           element={
             !authUser ? (
@@ -212,9 +262,10 @@ function App() {
           <Route path="products/create" element={<AdminCreateProductPage />} />
           <Route path="products/edit/:id" element={<AdminEditProductPage />} />
           <Route path="users" element={<AdminUsersPage />} />
+          
         </Route>
       </Routes>
-
+   
       <Toaster />
     </div>
   );
